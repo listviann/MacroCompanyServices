@@ -1,0 +1,40 @@
+﻿using MacroCompanyServices.Domain.Entities;
+using MacroCompanyServices.Domain.Repositories.Abstract;
+using Microsoft.EntityFrameworkCore;
+
+namespace MacroCompanyServices.Domain.Repositories.EntityFramework
+{
+    public class EFProductRepository : IProductRepository
+    {
+        private ApplicationContext _db;
+
+        public EFProductRepository(ApplicationContext db)
+        {
+            _db = db;
+        }
+
+        public IQueryable<Product> GetProducts() => _db.Products;
+
+        public Product GetProductById(Guid id) => _db.Products.FirstOrDefault(p => p.Id == id);
+
+        public void SaveProduct(Product entity)
+        {
+            if (entity.Id == default)
+            {
+                _db.Entry(entity).State = EntityState.Added;
+            }
+            else
+            {
+                _db.Entry(entity).State = EntityState.Modified;
+            }
+
+            _db.SaveChanges();
+        }
+
+        public void DeleteProduct(Guid id)
+        {
+            _db.Remove(new Product { Id = id });
+            _db.SaveChanges();
+        }
+    }
+}

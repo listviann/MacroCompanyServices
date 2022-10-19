@@ -22,12 +22,16 @@ namespace MacroCompanyServices.Domain.Entities
         [StringLength(150, MinimumLength = 2)]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Employee's email field cannot be empty")]
+        [Required(ErrorMessage = "Email is required")]
         [Display(Name = "Employee's email")]
         [RegularExpression(@"[^@\s]+@[^@\s]+\.[^@\s]+$", 
             ErrorMessage = "Incorrect email format\n An example of a valid email pattern: testname@testmail.com")]
         [StringLength(254)]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Password is required")]
+        [StringLength(50, MinimumLength = 5)]
+        public string Password { get; set; }
 
         [Required(ErrorMessage = "Employee's phone number field cannot be empty")]
         [Display(Name = "Employee's phone number")]
