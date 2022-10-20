@@ -5,14 +5,14 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MacroCompanyServices.Domain
 {
-    public class ApplicationContext : DbContext
+    public class MacroCompanyContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<Employee> Employees { get; set; } = null!;
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<PageData> PagesData { get; set; } = null!;
         public DbSet<ProductType> ProductTypes { get; set; } = null!;
 
-        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
+        public MacroCompanyContext(DbContextOptions<MacroCompanyContext> options) : base(options)
         { }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -71,13 +71,6 @@ namespace MacroCompanyServices.Domain
                 Title = "Employee info"
             });
 
-            builder.Entity<PageData>().HasData(new PageData
-            {
-                Id = new Guid("95d5f883-a4e6-4e14-9bef-98c1242a3022"),
-                CodeWord = "ProductInfo",
-                Title = "Product info"
-            });
-
             //builder.Entity<Employee>().HasData(new Employee
             //{
 
@@ -94,7 +87,6 @@ namespace MacroCompanyServices.Domain
             //});
 
             builder.Entity<Employee>().HasIndex(e => e.Email).IsUnique();
-            builder.Entity<Employee>().HasIndex(e => e.Password).IsUnique();
             builder.Entity<Employee>().HasIndex(e => e.PhoneNumber).IsUnique();
             builder.Entity<ProductType>().HasIndex(p => p.Name).IsUnique();
         }

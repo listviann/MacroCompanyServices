@@ -6,9 +6,9 @@ namespace MacroCompanyServices.Domain.Repositories.EntityFramework
 {
     public class EFPageDataRepository : IPageDataRepository
     {
-        private readonly ApplicationContext _db;
+        private readonly MacroCompanyContext _db;
 
-        public EFPageDataRepository(ApplicationContext db)
+        public EFPageDataRepository(MacroCompanyContext db)
         {
             _db = db;
         }

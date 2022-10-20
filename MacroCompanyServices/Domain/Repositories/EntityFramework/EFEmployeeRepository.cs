@@ -6,9 +6,9 @@ namespace MacroCompanyServices.Domain.Repositories.EntityFramework
 {
     public class EFEmployeeRepository : IEmployeeRepository
     {
-        private readonly ApplicationContext _db;
+        private readonly MacroCompanyContext _db;
 
-        public EFEmployeeRepository(ApplicationContext db)
+        public EFEmployeeRepository(MacroCompanyContext db)
         {
             _db = db;
         }

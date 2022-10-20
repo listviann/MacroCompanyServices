@@ -6,9 +6,9 @@ namespace MacroCompanyServices.Domain.Repositories.EntityFramework
 {
     public class EFProductRepository : IProductRepository
     {
-        private ApplicationContext _db;
+        private MacroCompanyContext _db;
 
-        public EFProductRepository(ApplicationContext db)
+        public EFProductRepository(MacroCompanyContext db)
         {
             _db = db;
         }

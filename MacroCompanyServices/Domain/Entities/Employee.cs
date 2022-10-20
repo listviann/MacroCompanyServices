@@ -29,10 +29,6 @@ namespace MacroCompanyServices.Domain.Entities
         [StringLength(254)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Password is required")]
-        [StringLength(50, MinimumLength = 5)]
-        public string Password { get; set; }
-
         [Required(ErrorMessage = "Employee's phone number field cannot be empty")]
         [Display(Name = "Employee's phone number")]
         [RegularExpression(@"\d{3}-\d{3}-\d{4}", 
