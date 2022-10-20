@@ -45,15 +45,16 @@ builder.Services.ConfigureApplicationCookie(options =>
 // Set the admin area authorization policy
 builder.Services.AddAuthorization(x =>
 {
+    // User must be an admin to go to the admin area
     x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
 });
-
-var app = builder.Build();
 
 builder.Services.AddControllersWithViews(x =>
 {
     x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
-}).AddSessionStateTempDataProvider();
+}).AddSessionStateTempDataProvider();// To enable the session based TempData provider
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
