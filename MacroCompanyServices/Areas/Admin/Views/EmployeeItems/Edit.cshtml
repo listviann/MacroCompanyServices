@@ -1,0 +1,48 @@
+﻿@model Employee
+@{
+    string strTitle = "Edit the information about employee";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h3>@strTitle</h3>
+    <form asp-area="Admin" asp-controller="EmployeesItems" asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="DateAdded" />
+
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="Name"></label><br />
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label asp-for="Email"></label><br />
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div>
+            <label asp-for="PhoneNumber"></label><br />
+            <input asp-for="PhoneNumber" />
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
+        <div>
+            <label asp-for="Salary"></label><br />
+            <input asp-for="Salary" min="0" />
+            <span asp-validation-for="Salary"></span>
+        </div>
+        <div>
+            <label asp-for="BirthDate"></label><br />
+            <input asp-for="BirthDate" />
+            <span asp-validation-for="BirthDate"></span>
+        </div>
+        <div>
+            <label asp-for="Position"></label>
+            <select asp-for="Position" asp-items="new SelectList(Enum.GetNames(typeof(EmployeePosition)))"></select>
+            <span asp-validation-for="Position"></span>
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </form>
+</div>

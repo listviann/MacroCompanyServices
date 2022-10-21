@@ -1,0 +1,50 @@
+﻿@model PageData
+@{
+    string strTitle = "Edit a page content";
+    ViewBag.Title = strTitle;
+}
+
+@*TODO: import CKEDITOR here*@
+
+<div>
+    <h2>@strTitle</h2>
+    <div>
+        <form asp-area="Admin" asp-controller="PagesData" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="DateAdded" />
+            <input type="hidden" asp-for="CodeWord" />
+
+            <div asp-validation-summary="All"></div>
+            <div>
+                <label asp-for="Title"></label><br />
+                <input asp-for="Title" />
+                <span asp-validation-for="Title"></span>
+            </div>
+            <div>
+                <label asp-for="Text"></label><br />
+                <textarea asp-for="Text"></textarea>
+                <span asp-validation-for="Text"></span>
+            </div>
+            <div>
+                <label asp-for="MetaTitle"></label><br />
+                <input asp-for="MetaTitle" />
+                <span asp-validation-for="MetaTitle"></span>
+            </div>
+            <div>
+                <label asp-for="MetaDescription"></label><br />
+                <textarea asp-for="MetaDescription"></textarea>
+                <span asp-validation-for="MetaDescription"></span>
+            </div>
+            <div>
+                <label asp-for="MetaKeywords"></label><br />
+                <input asp-for="MetaKeywords" />
+                <span asp-validation-for="MetaKeywords"></span>
+            </div>
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*TODO: Add JS script for CKEDTIOR*@
