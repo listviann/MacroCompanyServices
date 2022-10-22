@@ -8,10 +8,10 @@ namespace MacroCompanyServices.Domain.Entities
         public Guid Id { get; set; }
 
         [Display(Name = "Title")]
-        public virtual string Title { get; set; }
+        public virtual string? Title { get; set; }
 
         [Display(Name = "Description")]
-        public virtual string Text { get; set; }
+        public virtual string? Text { get; set; }
 
         [Display(Name = "Title SEO Metatag")]
         public string? MetaTitle { get; set; }

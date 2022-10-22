@@ -8,7 +8,7 @@
     <h1>@strTitle</h1>
     <div>
         <div>
-            <a asp-area="Admin" asp-controller="EmployeesItems" asp-action="Edit" asp-route-id="">Add a new employee</a>
+            <a asp-area="Admin" asp-controller="EmployeeItems" asp-action="Edit" asp-route-id="">Add a new employee</a>
         </div>
         <table>
             <tr>
@@ -25,8 +25,8 @@
                     <td>@item.BirthDate</td>
                     <td>@item.Position</td>
                     <td>
-                        <a asp-area="Admin" asp-controller="EmployeesItems" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <form asp-area="Admin" asp-controller="EmployeesItems" asp-action="Delete" asp-route-id="@item.Id">
+                        <a asp-area="Admin" asp-controller="EmployeeItems" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <form asp-area="Admin" asp-controller="EmployeeItems" asp-action="Delete" asp-route-id="@item.Id">
                             <input type="submit" value="Delete">
                         </form>
                     </td>
