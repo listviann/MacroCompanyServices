@@ -19,12 +19,10 @@
         <div>
             <label asp-for="ProductTypeId">Product type</label><br />
             <select name="ProductTypeId" asp-for="ProductType" asp-items="ViewBag.ProductTypes"></select>
-            <span asp-validation-for="ProductTypeId"></span>
         </div>
         <div>
             <label asp-for="EmployeeId">Employee</label>
             <select name="EmployeeId" asp-for="Employee" asp-items="ViewBag.Employees"></select>
-            <span asp-validation-for="EmployeeId"></span>
         </div>
         <div>
             <label asp-for="ProductPrice"></label><br />

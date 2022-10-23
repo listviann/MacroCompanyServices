@@ -5,7 +5,7 @@ namespace MacroCompanyServices.Domain.Entities
     public class PageData : BaseEntity
     {
         [Required]
-        public string CodeWord { get; set; }
+        public string? CodeWord { get; set; }
 
         [Required]
         [Display(Name = "Page title")]

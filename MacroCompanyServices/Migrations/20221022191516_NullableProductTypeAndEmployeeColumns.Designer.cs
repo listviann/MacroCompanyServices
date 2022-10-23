@@ -4,6 +4,7 @@ using MacroCompanyServices.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MacroCompanyServices.Migrations
 {
     [DbContext(typeof(MacroCompanyContext))]
-    partial class MacroCompanyContextModelSnapshot : ModelSnapshot
+    [Migration("20221022191516_NullableProductTypeAndEmployeeColumns")]
+    partial class NullableProductTypeAndEmployeeColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,7 +122,7 @@ namespace MacroCompanyServices.Migrations
                         {
                             Id = new Guid("7d2feb40-ae8a-4563-8b00-f5e842233e1e"),
                             CodeWord = "IndexPage",
-                            DateAdded = new DateTime(2022, 10, 23, 9, 37, 48, 130, DateTimeKind.Local).AddTicks(6865),
+                            DateAdded = new DateTime(2022, 10, 23, 0, 15, 16, 297, DateTimeKind.Local).AddTicks(4533),
                             Text = "The administrator adds data",
                             Title = "Main"
                         },
@@ -128,7 +130,7 @@ namespace MacroCompanyServices.Migrations
                         {
                             Id = new Guid("a80557f4-5468-4f58-8d65-e469acaea843"),
                             CodeWord = "EmployeesPage",
-                            DateAdded = new DateTime(2022, 10, 23, 9, 37, 48, 130, DateTimeKind.Local).AddTicks(6914),
+                            DateAdded = new DateTime(2022, 10, 23, 0, 15, 16, 297, DateTimeKind.Local).AddTicks(4587),
                             Text = "The administrator adds data",
                             Title = "Employees"
                         },
@@ -136,7 +138,7 @@ namespace MacroCompanyServices.Migrations
                         {
                             Id = new Guid("784d92e9-4136-45ba-b145-9c8bdba2b806"),
                             CodeWord = "ProductsPage",
-                            DateAdded = new DateTime(2022, 10, 23, 9, 37, 48, 130, DateTimeKind.Local).AddTicks(6926),
+                            DateAdded = new DateTime(2022, 10, 23, 0, 15, 16, 297, DateTimeKind.Local).AddTicks(4599),
                             Text = "The administrator adds data",
                             Title = "Products"
                         },
@@ -144,7 +146,7 @@ namespace MacroCompanyServices.Migrations
                         {
                             Id = new Guid("47a4a586-ec16-49d7-95d0-16ba7b80d69a"),
                             CodeWord = "EmployeeInfo",
-                            DateAdded = new DateTime(2022, 10, 23, 9, 37, 48, 130, DateTimeKind.Local).AddTicks(6939),
+                            DateAdded = new DateTime(2022, 10, 23, 0, 15, 16, 297, DateTimeKind.Local).AddTicks(4612),
                             Text = "The administrator adds data",
                             Title = "Employee info"
                         });
@@ -246,7 +248,7 @@ namespace MacroCompanyServices.Migrations
                         new
                         {
                             Id = "0995b24b-a1d1-46d7-a9f8-63367b9b5e33",
-                            ConcurrencyStamp = "57040b2b-16fd-4e94-a662-70bb93cea689",
+                            ConcurrencyStamp = "5cd0effc-4757-46b1-99e5-35753875e0db",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -346,11 +348,11 @@ namespace MacroCompanyServices.Migrations
                         {
                             Id = "4784f618-2d8d-4a42-a78f-aae1ecec4bf5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "07187c28-8a32-4ff0-a88d-3245e5197eae",
+                            ConcurrencyStamp = "96885bba-1a7e-4950-a473-7e0c1ee38aa8",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEGuvknvVBaTcPwgkslijtdVk1NcBuAmhTBzf06+N8+doL1uJx4ApG5Y4P8zh+9nGg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJQz/RfQt+ccqkR0Zd//+sTsY+uCOPHYPipFGZKCiW5hATTcHCwUl0GJk4Z5JTKoYw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,

@@ -3,6 +3,7 @@ using MacroCompanyServices.Domain.Entities;
 using MacroCompanyServices.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace MacroCompanyServices.Areas.Admin.Controllers
 {
@@ -18,7 +19,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View(_dataManager.Products.GetProducts());
+            return View(_dataManager.Products.GetProducts().Include(t => t.ProductType).Include(e => e.Employee));
         }
 
         public IActionResult Edit(Guid id)

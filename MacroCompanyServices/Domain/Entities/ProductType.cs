@@ -8,7 +8,7 @@ namespace MacroCompanyServices.Domain.Entities
 
         [Required(ErrorMessage = "Product type field cannot be empty")]
         [StringLength(150)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public List<Product> Products { get; set; } = new();
     }
