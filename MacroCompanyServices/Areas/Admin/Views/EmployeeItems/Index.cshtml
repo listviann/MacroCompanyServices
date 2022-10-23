@@ -1,20 +1,108 @@
-﻿@model IQueryable<Employee>
+﻿@model EmployeesIndexViewModel
 @{
     string strTitle = "Employees";
     ViewBag.Title = strTitle;
 }
 
+<style>
+    .glyphicon {
+        display: inline-block;
+        padding: 0 5px;
+    }
+
+    .glyphicon-chevron-right:after {
+        content: "\00BB";
+    }
+
+    .glyphicon-chevron-left:before {
+        content: "\00AB";
+    }
+</style>
+
 <div>
     <h1>@strTitle</h1>
+    <div>
+        <h3>Search employee by name or email</h3>
+        <form method="get">
+            <label>Name: </label>
+            <input name="name" value="@Model.FilterViewModel.SelectedName" />
+            <label>Email: </label>
+            <input name="email" value="@Model.FilterViewModel.SelectedEmail" />
+
+            <input type="submit" value="Search" />
+        </form>
+    </div>
     <div>
         <div>
             <a asp-area="Admin" asp-controller="EmployeeItems" asp-action="Edit" asp-route-id="">Add a new employee</a>
         </div>
-        <table>
+        <table class="table">
             <tr>
-                <th>Id</th><th>Name</th><th>Email</th><th>Phone number</th><th>Salary</th><th>Birth date</th><th>Position</th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="EmployeeItems"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Id</a>
+                </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="EmployeeItems"
+                       asp-action="Index"
+                       asp-route-sortOrder="@(Model.SortViewModel.EmployeeNameSort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Name</a>
+                </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="EmployeeItems"
+                       asp-action="Index"
+                       asp-route-sortOrder="@(Model.SortViewModel.EmployeeEmailSort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Email</a>
+                </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="EmployeeItems"
+                       asp-action="Index"
+                       asp-route-sortOrder="@(Model.SortViewModel.EmployeePhoneNumberSort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Phone number</a>
+                </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="EmployeeItems"
+                       asp-action="Index"
+                       asp-route-sortOrder="@(Model.SortViewModel.EmployeeSalarySort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Salary</a>
+                </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="EmployeeItems"
+                       asp-action="Index"
+                       asp-route-sortOrder="@(Model.SortViewModel.EmployeeBirthDateSort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Birth date</a>
+                </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="EmployeeItems"
+                       asp-action="Index"
+                       asp-route-sortOrder="@(Model.SortViewModel.EmployeePositionSort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Position</a>
+                </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="EmployeeItems"
+                       asp-action="Index"
+                       asp-route-sortOrder="@(Model.SortViewModel.EmployeeDateAddedSort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Date added</a>
+                </th>
             </tr>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Employees)
             {
                 <tr>
                     <td>@item.Id</td>
@@ -24,8 +112,11 @@
                     <td>@item.Salary</td>
                     <td>@item.BirthDate</td>
                     <td>@item.Position</td>
+                    <td>@item.DateAdded</td>
                     <td>
                         <a asp-area="Admin" asp-controller="EmployeeItems" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </td>
+                    <td>
                         <form asp-area="Admin" asp-controller="EmployeeItems" asp-action="Delete" asp-route-id="@item.Id">
                             <input type="submit" value="Delete">
                         </form>
@@ -33,5 +124,8 @@
                 </tr>
             }
         </table>
+        <page-link page-model="Model.PageViewModel" page-action="Index"
+                   page-url-name="@(Model.FilterViewModel.SelectedName)"
+                   page-url-email="@(Model.FilterViewModel.SelectedEmail)"
+                   page-url-sortOrder="@(Model.SortViewModel.Current)"></page-link>
     </div>
-</div>

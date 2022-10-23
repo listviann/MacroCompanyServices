@@ -30,6 +30,21 @@
             <span asp-validation-for="ProductPrice"></span>
         </div>
         <div>
+            <label asp-for="MetaTitle"></label><br />
+            <input asp-for="MetaTitle" />
+            <span asp-validation-for="MetaTitle"></span>
+        </div>
+        <div>
+            <label asp-for="MetaDescription"></label><br />
+            <textarea asp-for="MetaDescription"></textarea>
+            <span asp-validation-for="MetaDescription"></span>
+        </div>
+        <div>
+            <label asp-for="MetaKeywords"></label><br />
+            <input asp-for="MetaKeywords" />
+            <span asp-validation-for="MetaKeywords"></span>
+        </div>
+        <div>
             <input type="submit" value="Save" />
         </div>
     </form>

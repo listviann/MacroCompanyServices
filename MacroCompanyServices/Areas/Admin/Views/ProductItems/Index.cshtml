@@ -1,4 +1,4 @@
-﻿@model IQueryable<Product>
+﻿@model ProductsIndexViewModel
 @{
     string strTitle = "Products";
     ViewBag.Title = strTitle;
@@ -8,17 +8,70 @@
     <h1>@strTitle</h1>
     <div>
         <div>
+            <h3>Search product by name, product type or employee</h3>
+            <form method="get">
+                <label>Product name: </label>
+                <input name="name" value="@(Model.FilterViewModel.SelectedName)" />
+
+                <label>Product type: </label>
+                <select name="productType" asp-items="Model.FilterViewModel.ProductTypes"></select>
+
+                <label>Employee: </label>
+                <select name="employee" asp-items="Model.FilterViewModel.Employees"></select>
+
+                <input type="submit" value="Search" />
+            </form>
+        </div>
+        <div>
             <a asp-area="Admin" asp-controller="ProductItems" asp-action="Edit" asp-route-id="">Add a new product</a>
         </div>
-        <table>
+        <table class="table">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Price</th>
-                <th>Employee</th>
+                <th><a asp-area="Admin"
+                       asp-controller="ProductItems"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-employee="@(Model.FilterViewModel.SelectedEmployee)"
+                       asp-route-productType="@(Model.FilterViewModel.SelectedProductType)">Id</a>
+                </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="ProductItems"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-employee="@(Model.FilterViewModel.SelectedEmployee)"
+                       asp-route-productType="@(Model.FilterViewModel.SelectedProductType)"
+                       asp-route-sortOrder="@(Model.SortViewModel.ProductNameSort)">Name</a>
+                </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="ProductItems"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-employee="@(Model.FilterViewModel.SelectedEmployee)"
+                       asp-route-productType="@(Model.FilterViewModel.SelectedProductType)"
+                       asp-route-sortOrder="@(Model.SortViewModel.ProductTypeNameSort)">Type</a>
+                </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="ProductItems"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-employee="@(Model.FilterViewModel.SelectedEmployee)"
+                       asp-route-productType="@(Model.FilterViewModel.SelectedProductType)"
+                       asp-route-sortOrder="@(Model.SortViewModel.ProductPriceSort)">Price</a>
+                </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="ProductItems"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-employee="@(Model.FilterViewModel.SelectedEmployee)"
+                       asp-route-productType="@(Model.FilterViewModel.SelectedProductType)"
+                       asp-route-sortOrder="@(Model.SortViewModel.EmployeeNameSort)">Employee</a>
+                </th>
             </tr>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Products)
             {
                 <tr>
                     <td>@item.Id</td>
@@ -28,6 +81,8 @@
                     <td>@item.Employee!.Name</td>
                     <td>
                         <a asp-area="Admin" asp-controller="ProductItems" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </td>
+                    <td>
                         <form asp-area="Admin" asp-controller="ProductItems" asp-action="Delete" asp-route-id="@item.Id">
                             <input type="submit" value="Delete">
                         </form>
@@ -35,5 +90,10 @@
                 </tr>
             }
         </table>
+        <page-link page-model="Model.PageViewModel" page-action="Index"
+                   page-url-name="@(Model.FilterViewModel.SelectedName)"
+                   page-url-employee="@(Model.FilterViewModel.SelectedEmployee)"
+                   page-url-productType="@(Model.FilterViewModel.SelectedProductType)"
+                   page-url-sortOrder="@(Model.SortViewModel.Current)"></page-link>
     </div>
 </div>
