@@ -1,6 +1,8 @@
-﻿using MacroCompanyServices.Domain;
+﻿using MacroCompanyServices.Areas.Admin.Models;
+using MacroCompanyServices.Domain;
 using MacroCompanyServices.Domain.Entities;
 using MacroCompanyServices.Service;
+using MacroCompanyServices.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MacroCompanyServices.Areas.Admin.Controllers
@@ -15,9 +17,31 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
             _dataManager = dataManager;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string name, int page = 1, ProductTypeSortState sortOrder = ProductTypeSortState.ProductTypeNameAsc)
         {
-            return View(_dataManager.ProductTypes.GetProductTypes());
+            int pageSize = 3;
+            IQueryable<ProductType> productTypes = _dataManager.ProductTypes.GetProductTypes();
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                productTypes = productTypes.Where(p => p.Name == name);
+            }
+
+            productTypes = sortOrder switch
+            {
+                ProductTypeSortState.ProductTypeNameDesc => productTypes.OrderByDescending(p => p.Name),
+                _ => productTypes.OrderBy(p => p.Name),
+            };
+
+            var count = productTypes.Count();
+            var items = productTypes.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            ProductTypesIndexViewModel viewModel = new ProductTypesIndexViewModel(items, 
+                new PageViewModel(count, page, pageSize),
+                new ProductTypesFilterViewModel(name),
+                new ProductTypesSortViewModel(sortOrder));
+
+            return View(viewModel);
         }
 
         public IActionResult Edit(Guid id)

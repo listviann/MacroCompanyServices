@@ -1,4 +1,4 @@
-﻿@model IQueryable<ProductType>
+﻿@model ProductTypesIndexViewModel
 @{
     string strTitle = "Product types";
     ViewBag.Title = strTitle;
@@ -12,10 +12,20 @@
         </div>
         <table class="table">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
+                <th><a asp-area="Admin"
+                     asp-controller="ProductTypeItems"
+                     asp-action="Index"
+                     asp-route-name="@(Model.FilterViewModel.SelectedName)">Id</a>
+                 </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="ProductTypeItems"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-sortOrder="@(Model.SortViewModel.ProductTypeNameSort)">Name</a>
+                </th>
             </tr>
-            @foreach (var item in Model)
+            @foreach (var item in Model.ProductTypes)
             {
                 <tr>
                     <td>@item.Id</td>
@@ -31,5 +41,8 @@
                 </tr>
             }
         </table>
+        <page-link page-model="Model.PageViewModel" page-action="Index"
+                   page-url-name="@(Model.FilterViewModel.SelectedName)"
+                   page-url-sortOrder="@(Model.SortViewModel.Current)"></page-link>
     </div>
 </div>
