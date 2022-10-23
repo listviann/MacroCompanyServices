@@ -1,0 +1,62 @@
+﻿@model PagesDataIndexViewModel
+@{
+    string strTitle = "Pages data";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h1>@strTitle</h1>
+    <div>
+        <h3>Seach page by page code word</h3>
+        <form method="get">
+            <label>Code word: </label>
+            <input name="codeWord" value="@(Model.FilterViewModel.SelectedName)"/>
+
+            <input type="submit" value="Search" />
+        </form>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th><a asp-area="Admin" 
+                     asp-controller="PageDataItems" 
+                     asp-action="Index"
+                     asp-route-codeWord="@(Model.FilterViewModel.SelectedName)">Id</a>
+                </th>
+                <th><a asp-area="Admin"
+                     asp-controller="PageDataItems"
+                     asp-action="Index"
+                     asp-route-codeWord="@(Model.FilterViewModel.SelectedName)"
+                     asp-route-sortOrder="@(Model.SortViewModel.CodeWordSort)">CodeWord</a>
+                 </th>
+                <th><a asp-area="Admin"
+                     asp-controller="PageDataItems"
+                     asp-action="Index"
+                     asp-route-codeWord="@(Model.FilterViewModel.SelectedName)"
+                     asp-route-sortOrder="@(Model.SortViewModel.TitleSort)">Title</a>
+                </th>
+                <th><a asp-area="Admin"
+                     asp-controller="PageDataItems"
+                     asp-action="Index"
+                     asp-route-codeWord="@(Model.FilterViewModel.SelectedName)"
+                     asp-route-sortOrder="@(Model.SortViewModel.TextSort)">Text</a>
+                 </th>
+            </tr>
+            @foreach (var item in Model.PagesData)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.CodeWord</td>
+                    <td>@item.Title</td>
+                    <td>@item.Text</td>
+                    <td>
+                        <a asp-area="Admin" asp-controller="PageDataItems" asp-action="Edit" asp-route-codeWord="@item.CodeWord">Edit</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <page-link page-model="Model.PageViewModel" page-action="Index"
+                   page-url-codeWord="@(Model.FilterViewModel.SelectedName)"
+                   page-url-sortOrder="@(Model.SortViewModel.Current)"></page-link>
+    </div>
+</div>

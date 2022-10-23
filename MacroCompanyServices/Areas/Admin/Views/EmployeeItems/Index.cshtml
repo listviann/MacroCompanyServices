@@ -4,7 +4,7 @@
     ViewBag.Title = strTitle;
 }
 
-<style>
+@*<style>
     .glyphicon {
         display: inline-block;
         padding: 0 5px;
@@ -17,7 +17,7 @@
     .glyphicon-chevron-left:before {
         content: "\00AB";
     }
-</style>
+</style>*@
 
 <div>
     <h1>@strTitle</h1>
@@ -129,3 +129,4 @@
                    page-url-email="@(Model.FilterViewModel.SelectedEmail)"
                    page-url-sortOrder="@(Model.SortViewModel.Current)"></page-link>
     </div>
+</div>
