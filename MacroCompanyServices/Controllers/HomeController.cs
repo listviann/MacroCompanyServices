@@ -1,6 +1,7 @@
 ﻿using MacroCompanyServices.Domain;
 using MacroCompanyServices.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Diagnostics;
 using System.Diagnostics;
 
 namespace MacroCompanyServices.Controllers

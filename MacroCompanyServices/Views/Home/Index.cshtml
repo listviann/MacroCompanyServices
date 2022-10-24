@@ -1,8 +1,16 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model PageData
+@{
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.Description = Model.MetaDescription;
+    ViewBag.Keywords = Model.MetaKeywords;
 }
+
+<div>
+    @Html.Raw(Model.Text)
+</div>
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p><a asp-area="" asp-controller="Employees" asp-action="Index">Employees</a></p>
+    <p><a asp-area="" asp-controller="Prodcts" asp-action="Index">Products</a></p>
 </div>
