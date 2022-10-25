@@ -25,7 +25,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
 
             if (!string.IsNullOrEmpty(codeWord))
             {
-                pagesData = pagesData.Where(p => p.CodeWord == codeWord);
+                pagesData = pagesData.Where(p => p.CodeWord!.Contains(codeWord));
             }
 
             pagesData = sortOrder switch

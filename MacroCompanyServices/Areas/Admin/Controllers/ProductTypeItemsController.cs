@@ -24,7 +24,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
 
             if (!string.IsNullOrEmpty(name))
             {
-                productTypes = productTypes.Where(p => p.Name == name);
+                productTypes = productTypes.Where(p => p.Name!.Contains(name));
             }
 
             productTypes = sortOrder switch

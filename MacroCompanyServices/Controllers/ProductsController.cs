@@ -34,7 +34,7 @@ namespace MacroCompanyServices.Controllers
 
             if (!string.IsNullOrEmpty(name))
             {
-                products = products.Where(p => p.ProductName == name);
+                products = products.Where(p => p.ProductName!.Contains(name));
             }
 
             products = sortOrder switch

@@ -49,6 +49,7 @@ namespace MacroCompanyServices.Controllers
                 EmployeesSortState.DateAddedDesc => employees.OrderByDescending(e => e.DateAdded),
                 _ => employees.OrderBy(e => e.Name),
             };
+
             var count = employees.Count();
             var items = employees.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 

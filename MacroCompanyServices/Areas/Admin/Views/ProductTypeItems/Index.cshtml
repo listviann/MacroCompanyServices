@@ -8,15 +8,25 @@
     <h1>@strTitle</h1>
     <div>
         <div>
+            <h3>Search product by name, product type or employee</h3>
+            <form method="get">
+                <label>Product type name: </label>
+                <input name="name" value="@(Model.FilterViewModel.SelectedName)" />
+
+                <input type="submit" value="Search" />
+            </form>
+        </div>
+        <div>
             <a asp-area="Admin" asp-controller="ProductTypeItems" asp-action="Edit" asp-route-id="">Add a new product type</a>
         </div>
         <table class="table">
             <tr>
-                <th><a asp-area="Admin"
-                     asp-controller="ProductTypeItems"
-                     asp-action="Index"
-                     asp-route-name="@(Model.FilterViewModel.SelectedName)">Id</a>
-                 </th>
+                <th>
+                    <a asp-area="Admin"
+                       asp-controller="ProductTypeItems"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)">Id</a>
+                </th>
                 <th>
                     <a asp-area="Admin"
                        asp-controller="ProductTypeItems"
