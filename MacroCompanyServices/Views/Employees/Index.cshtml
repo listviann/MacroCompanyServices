@@ -17,63 +17,56 @@
         <table class="table">
             <tr>
                 <th>
-                    <a asp-area="Admin"
-                       asp-controller="EmployeeItems"
-                       asp-action="Index"
-                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
-                       asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Id</a>
-                </th>
-                <th>
-                    <a asp-area="Admin"
-                       asp-controller="EmployeeItems"
+                    <a asp-area=""
+                       asp-controller="Employees"
                        asp-action="Index"
                        asp-route-sortOrder="@(Model.SortViewModel.EmployeeNameSort)"
                        asp-route-name="@(Model.FilterViewModel.SelectedName)"
                        asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Name</a>
                 </th>
                 <th>
-                    <a asp-area="Admin"
-                       asp-controller="EmployeeItems"
+                    <a asp-area=""
+                       asp-controller="Employees"
                        asp-action="Index"
                        asp-route-sortOrder="@(Model.SortViewModel.EmployeeEmailSort)"
                        asp-route-name="@(Model.FilterViewModel.SelectedName)"
                        asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Email</a>
                 </th>
                 <th>
-                    <a asp-area="Admin"
-                       asp-controller="EmployeeItems"
+                    <a asp-area=""
+                       asp-controller="Employees"
                        asp-action="Index"
                        asp-route-sortOrder="@(Model.SortViewModel.EmployeePhoneNumberSort)"
                        asp-route-name="@(Model.FilterViewModel.SelectedName)"
                        asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Phone number</a>
                 </th>
                 <th>
-                    <a asp-area="Admin"
-                       asp-controller="EmployeeItems"
+                    <a asp-area=""
+                       asp-controller="Employees"
                        asp-action="Index"
                        asp-route-sortOrder="@(Model.SortViewModel.EmployeeSalarySort)"
                        asp-route-name="@(Model.FilterViewModel.SelectedName)"
                        asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Salary</a>
                 </th>
                 <th>
-                    <a asp-area="Admin"
-                       asp-controller="EmployeeItems"
+                    <a asp-area=""
+                       asp-controller="Employees"
                        asp-action="Index"
                        asp-route-sortOrder="@(Model.SortViewModel.EmployeeBirthDateSort)"
                        asp-route-name="@(Model.FilterViewModel.SelectedName)"
                        asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Birth date</a>
                 </th>
                 <th>
-                    <a asp-area="Admin"
-                       asp-controller="EmployeeItems"
+                    <a asp-area=""
+                       asp-controller="Employees"
                        asp-action="Index"
                        asp-route-sortOrder="@(Model.SortViewModel.EmployeePositionSort)"
                        asp-route-name="@(Model.FilterViewModel.SelectedName)"
                        asp-route-email="@(Model.FilterViewModel.SelectedEmail)">Position</a>
                 </th>
                 <th>
-                    <a asp-area="Admin"
-                       asp-controller="EmployeeItems"
+                    <a asp-area=""
+                       asp-controller="Employees"
                        asp-action="Index"
                        asp-route-sortOrder="@(Model.SortViewModel.EmployeeDateAddedSort)"
                        asp-route-name="@(Model.FilterViewModel.SelectedName)"
@@ -83,8 +76,7 @@
             @foreach (var item in Model.Employees)
             {
                 <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
+                    <td><a asp-area="" asp-controller="Employees" asp-action="Info" asp-route-id="@item.Id">@item.Name</a></td>
                     <td>@item.Email</td>
                     <td>@item.PhoneNumber</td>
                     <td>@item.Salary</td>

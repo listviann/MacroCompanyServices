@@ -2,6 +2,7 @@
 using MacroCompanyServices.Domain.Entities;
 using MacroCompanyServices.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace MacroCompanyServices.Controllers
 {
@@ -56,6 +57,17 @@ namespace MacroCompanyServices.Controllers
                 new EmployeesSortViewModel(sortOrder));
 
             return View(viewModel);
+        }
+
+        public IActionResult Info(Guid id)
+        {
+            if (id != default)
+            {
+                Employee? employee = _dataManager.Employees.GetEmployeeById(id);
+                if (employee != null) return View(employee);
+            }
+
+            return NotFound();
         }
     }
 }
