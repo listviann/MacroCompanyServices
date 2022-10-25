@@ -2,6 +2,7 @@
 using MacroCompanyServices.Domain.Entities;
 using MacroCompanyServices.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace MacroCompanyServices.Controllers
@@ -61,9 +62,12 @@ namespace MacroCompanyServices.Controllers
 
         public IActionResult Info(Guid id)
         {
+            IQueryable<Employee> employees = _dataManager.Employees.GetEmployees().Include(p => p.Products);
+
             if (id != default)
             {
-                Employee? employee = _dataManager.Employees.GetEmployeeById(id);
+                //Employee? employee = _dataManager.Employees.GetEmployeeById(id);
+                Employee? employee = employees.FirstOrDefault(e => e.Id == id);
                 if (employee != null) return View(employee);
             }
 
