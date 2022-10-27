@@ -47,11 +47,13 @@ builder.Services.AddAuthorization(x =>
 {
     // User must be an admin to go to the admin area
     x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
+    x.AddPolicy("UserArea", policy => { policy.RequireRole("ordinary_user"); });
 });
 
 builder.Services.AddControllersWithViews(x =>
 {
     x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
+    x.Conventions.Add(new UserAreaAuthorization("User", "UserArea"));
 }).AddSessionStateTempDataProvider();// To enable the session based TempData provider
 
 var app = builder.Build();

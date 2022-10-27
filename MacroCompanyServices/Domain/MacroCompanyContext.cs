@@ -19,7 +19,7 @@ namespace MacroCompanyServices.Domain
         {
             base.OnModelCreating(builder);
 
-            // create admin role
+            // create an admin role
             builder.Entity<IdentityRole>().HasData(new IdentityRole
             {
                 Id = "0995b24b-a1d1-46d7-a9f8-63367b9b5e33",
@@ -27,7 +27,7 @@ namespace MacroCompanyServices.Domain
                 NormalizedName = "ADMIN"
             });
 
-            // create admin role
+            // create an admin user
             builder.Entity<IdentityUser>().HasData(new IdentityUser
             {
                 Id = "4784f618-2d8d-4a42-a78f-aae1ecec4bf5",
@@ -37,10 +37,18 @@ namespace MacroCompanyServices.Domain
                 SecurityStamp = String.Empty
             });
             
+            // assign the admin role to the admin user
             builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
                 RoleId = "0995b24b-a1d1-46d7-a9f8-63367b9b5e33",
                 UserId = "4784f618-2d8d-4a42-a78f-aae1ecec4bf5"
+            });
+
+            builder.Entity<IdentityRole>().HasData(new IdentityRole()
+            {
+                Id = "89fd7d8c-036e-403b-8ebd-be999be4e6e4",
+                Name = "ordinary_user",
+                NormalizedName = "ORDINARY_USER"
             });
 
             builder.Entity<PageData>().HasData(new PageData
@@ -70,22 +78,7 @@ namespace MacroCompanyServices.Domain
                 CodeWord = "EmployeeInfo",
                 Title = "Employee info"
             });
-
-            //builder.Entity<Employee>().HasData(new Employee
-            //{
-
-            //});
-
-            //builder.Entity<Product>().HasData(new Product
-            //{
-
-            //});
-
-            //builder.Entity<ProductType>().HasData(new ProductType
-            //{
-
-            //});
-
+            
             builder.Entity<Employee>().HasIndex(e => e.Email).IsUnique();
             builder.Entity<Employee>().HasIndex(e => e.PhoneNumber).IsUnique();
             builder.Entity<ProductType>().HasIndex(p => p.Name).IsUnique();

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MacroCompanyServices.Models;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace MacroCompanyServices.Controllers
 {
@@ -10,11 +11,44 @@ namespace MacroCompanyServices.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
+        }
+
+        [AllowAnonymous]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model, string? returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                IdentityUser user = new IdentityUser { UserName = model.UserName };
+                var result = await _userManager.CreateAsync(user, model.Password);
+                await _userManager.AddToRoleAsync(user, "ordinary_user");
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, false);
+                    return Redirect(returnUrl ?? "/");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(String.Empty, error.Description);
+                    }
+                }
+            }
+
+            return View(model);
         }
 
         [AllowAnonymous]
