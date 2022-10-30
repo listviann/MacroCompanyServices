@@ -9,4 +9,7 @@
         <p>User ID: @ViewBag.userId</p>
         <p>Username: @ViewBag.userName</p>
     </div>
+    <div>
+        <a asp-area="User" asp-controller="UserProfile" asp-action="Edit" asp-route-id="@ViewBag.userId">Edit profile</a>
+    </div>
 </div>
