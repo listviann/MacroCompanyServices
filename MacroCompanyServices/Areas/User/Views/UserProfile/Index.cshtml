@@ -1,5 +1,12 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    string strTitle = "User information";
+    ViewBag.Title = strTitle;
 }
+
+<div>
+    <h1>@strTitle</h1>
+    <div>
+        <p>User ID: @ViewBag.userId</p>
+        <p>Username: @ViewBag.userName</p>
+    </div>
+</div>
