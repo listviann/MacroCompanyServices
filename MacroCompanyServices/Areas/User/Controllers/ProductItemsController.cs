@@ -23,7 +23,7 @@ namespace MacroCompanyServices.Areas.User.Controllers
             _userManager = userManager;
         }
 
-        public async  Task<IActionResult> Index(string name, Guid productType, Guid employee,
+        public IActionResult Index(string name, Guid productType, Guid employee,
             int page = 1, ProductsSortState sortOrder = ProductsSortState.ProductNameAsc)
         {
             int pageSize = 3;
@@ -77,6 +77,18 @@ namespace MacroCompanyServices.Areas.User.Controllers
             Debug.WriteLine(userId);
 
             return View(viewModel);
+        }
+
+        public IActionResult Info(Guid id)
+        {
+            if (id != default)
+            {
+                IQueryable<Product> products = _dataManager.Products.GetProducts().Include(p => p.ProductType).Include(p => p.Employee);
+                Product? product = products.FirstOrDefault(p => p.Id == id);
+                if (product != null) return View(product);
+            }
+
+            return NotFound();
         }
 
         public IActionResult AddToCart(Guid prodId)

@@ -1,0 +1,24 @@
+﻿@model Employee
+@{
+    string strTitle = "Employee information";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h2>@strTitle</h2>
+    <div>
+        <p>Name: @Model.Name</p>
+        <p>Email: @Model.Email</p>
+        <p>Phone number: @Model.PhoneNumber</p>
+        <p>Salary: @Model.Salary</p>
+        <p>Birth date: @Model.BirthDate</p>
+        <p>Position: @Model.Position</p>
+        <div>
+            <p>Products:</p>
+            @foreach (var prod in Model.Products)
+            {
+                <p><a asp-area="User" asp-controller="ProductItems" asp-action="Info" asp-route-id="@prod.Id">@prod.ProductName</a></p>
+            }
+        </div>
+    </div>
+</div>

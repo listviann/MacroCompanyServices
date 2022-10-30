@@ -1,0 +1,15 @@
+﻿@model Product
+@{
+    string strTitle = "Product information";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h2>@strTitle</h2>
+    <div>
+        <p>Product name: @Model.ProductName</p>
+        <p>Product type: @Model.ProductType!.Name</p>
+        <p>Price: @Model.ProductPrice</p>
+        <p>Created by: <a asp-area="User" asp-controller="EmployeeItems" asp-action="Info" asp-route-id=@Model.EmployeeId>@Model.Employee!.Name</a></p>
+    </div>
+</div>
