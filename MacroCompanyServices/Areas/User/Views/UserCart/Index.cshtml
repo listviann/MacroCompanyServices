@@ -1,36 +1,66 @@
-﻿@model IQueryable<CartItem>
+﻿@model CartItemsIndexViewModel
 @{
     string strTitle = "User's cart";
-
-    //ViewBag.Title = strTitle;
+    ViewBag.Title = strTitle;
 }
 
 <div>
     <h1>@strTitle</h1>
     <div>
-        @*<div>
-        <h3>Search product by name, product type or employee</h3>
+        <div>
+        <h3>Search cart item by name</h3>
         <form method="get">
         <label>Product name: </label>
         <input name="name" value="@(Model.FilterViewModel.SelectedName)" />
 
-        <label>Product type: </label>
-        <select name="productType" asp-items="Model.FilterViewModel.ProductTypes"></select>
-
-        <label>Employee: </label>
-        <select name="employee" asp-items="Model.FilterViewModel.Employees"></select>
-
         <input type="submit" value="Search" />
         </form>
-        </div>*@
+        </div>
         <table class="table">
-            @foreach (var item in Model)
+            <tr>
+                <th>
+                    <a asp-area="User"
+                       asp-controller="UserCart"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)">Id</a>
+                </th>
+                <th>
+                    <a asp-area="User"
+                       asp-controller="UserCart"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)"
+                       asp-route-sortOrder="@(Model.SortViewModel.ProductNameSort)">Name</a>
+                </th>
+                <th>
+                    <a asp-area="User"
+                       asp-controller="UserCart"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)">Type</a>
+                </th>
+                <th>
+                    <a asp-area="User"
+                       asp-controller="UserCart"
+                       asp-action="Index"
+                       asp-route-name="@(Model.FilterViewModel.SelectedName)">Price</a>
+                </th>
+            </tr>
+            @foreach (var item in Model.CartItems)
             {
                 <tr>
                     <td>@item.Id</td>
-                    <td>@item.Product?.ProductName</td>
+                    <td>@item.Product!.ProductName</td>
+                    <td>@item.Product!.ProductType!.Name</td>
+                    <td>@item.Product!.ProductPrice</td>
+                    <td>
+                        <form asp-area="User" asp-controller="UserCart" asp-action="DeleteFromCart" asp-route-id="@item.Id">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
                 </tr>
             }
         </table>
+        <page-link page-model="Model.PageViewModel" page-action="Index"
+                   page-url-name="@(Model.FilterViewModel.SelectedName)"
+                   page-url-sortOrder="@(Model.SortViewModel.Current)"></page-link>
     </div>
 </div>
