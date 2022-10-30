@@ -1,0 +1,35 @@
+﻿@model IQueryable<CartItem>
+@{
+    string strTitle = "User's cart";
+    //ViewBag.Title = strTitle;
+}
+
+<div>
+    <h1>@strTitle</h1>
+    <div>
+        @*<div>
+        <h3>Search product by name, product type or employee</h3>
+        <form method="get">
+        <label>Product name: </label>
+        <input name="name" value="@(Model.FilterViewModel.SelectedName)" />
+
+        <label>Product type: </label>
+        <select name="productType" asp-items="Model.FilterViewModel.ProductTypes"></select>
+
+        <label>Employee: </label>
+        <select name="employee" asp-items="Model.FilterViewModel.Employees"></select>
+
+        <input type="submit" value="Search" />
+        </form>
+        </div>*@
+        <table class="table">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    
+                </tr>
+            }
+        </table>
+    </div>
+</div>

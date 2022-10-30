@@ -17,6 +17,7 @@ builder.Services.AddTransient<IPageDataRepository, EFPageDataRepository>();
 builder.Services.AddTransient<IEmployeeRepository, EFEmployeeRepository>();
 builder.Services.AddTransient<IProductRepository, EFProductRepository>();
 builder.Services.AddTransient<IProductTypeRepository, EFProductTypeRepository>();
+builder.Services.AddTransient<ICartItemRepository, EFCartItemRepository>();
 builder.Services.AddTransient<DataManager>();
 
 // Add the database context

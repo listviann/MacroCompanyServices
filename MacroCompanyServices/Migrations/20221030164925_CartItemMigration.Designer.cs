@@ -4,6 +4,7 @@ using MacroCompanyServices.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MacroCompanyServices.Migrations
 {
     [DbContext(typeof(MacroCompanyContext))]
-    partial class MacroCompanyContextModelSnapshot : ModelSnapshot
+    [Migration("20221030164925_CartItemMigration")]
+    partial class CartItemMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,10 +30,10 @@ namespace MacroCompanyServices.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProductId")
+                    b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("UserId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -139,7 +141,7 @@ namespace MacroCompanyServices.Migrations
                         {
                             Id = new Guid("7d2feb40-ae8a-4563-8b00-f5e842233e1e"),
                             CodeWord = "IndexPage",
-                            DateAdded = new DateTime(2022, 10, 30, 22, 6, 20, 982, DateTimeKind.Local).AddTicks(1216),
+                            DateAdded = new DateTime(2022, 10, 30, 21, 49, 24, 636, DateTimeKind.Local).AddTicks(1942),
                             Text = "The administrator adds data",
                             Title = "Main"
                         },
@@ -147,7 +149,7 @@ namespace MacroCompanyServices.Migrations
                         {
                             Id = new Guid("a80557f4-5468-4f58-8d65-e469acaea843"),
                             CodeWord = "EmployeesPage",
-                            DateAdded = new DateTime(2022, 10, 30, 22, 6, 20, 982, DateTimeKind.Local).AddTicks(1277),
+                            DateAdded = new DateTime(2022, 10, 30, 21, 49, 24, 636, DateTimeKind.Local).AddTicks(1978),
                             Text = "The administrator adds data",
                             Title = "Employees"
                         },
@@ -155,7 +157,7 @@ namespace MacroCompanyServices.Migrations
                         {
                             Id = new Guid("784d92e9-4136-45ba-b145-9c8bdba2b806"),
                             CodeWord = "ProductsPage",
-                            DateAdded = new DateTime(2022, 10, 30, 22, 6, 20, 982, DateTimeKind.Local).AddTicks(1292),
+                            DateAdded = new DateTime(2022, 10, 30, 21, 49, 24, 636, DateTimeKind.Local).AddTicks(1990),
                             Text = "The administrator adds data",
                             Title = "Products"
                         },
@@ -163,7 +165,7 @@ namespace MacroCompanyServices.Migrations
                         {
                             Id = new Guid("47a4a586-ec16-49d7-95d0-16ba7b80d69a"),
                             CodeWord = "EmployeeInfo",
-                            DateAdded = new DateTime(2022, 10, 30, 22, 6, 20, 982, DateTimeKind.Local).AddTicks(1308),
+                            DateAdded = new DateTime(2022, 10, 30, 21, 49, 24, 636, DateTimeKind.Local).AddTicks(2001),
                             Text = "The administrator adds data",
                             Title = "Employee info"
                         });
@@ -265,14 +267,14 @@ namespace MacroCompanyServices.Migrations
                         new
                         {
                             Id = "0995b24b-a1d1-46d7-a9f8-63367b9b5e33",
-                            ConcurrencyStamp = "e223b132-7c6a-4d24-90bb-f35debc76886",
+                            ConcurrencyStamp = "ea51bdb7-68a3-4698-828c-60c2a1f53a7b",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "89fd7d8c-036e-403b-8ebd-be999be4e6e4",
-                            ConcurrencyStamp = "560db604-07ea-43ca-ac90-3a95148bf52f",
+                            ConcurrencyStamp = "94afd675-9ae4-4bb2-8b54-e9e9f8c2273c",
                             Name = "ordinary_user",
                             NormalizedName = "ORDINARY_USER"
                         });
@@ -372,11 +374,11 @@ namespace MacroCompanyServices.Migrations
                         {
                             Id = "4784f618-2d8d-4a42-a78f-aae1ecec4bf5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1ea10cc5-3294-4739-8ab3-43bcb620c292",
+                            ConcurrencyStamp = "e1c6dac7-936f-4cce-921b-d3b7d21dd8ba",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAENuEhKpGI6Ayr3gnbQQ9PMAkeSNoNA3xDxezGV7vSRPd35QwXrIjvT4ulQ323xEvuw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKiCldOGPhftNkzm8zQ0baYMiR7T6WW1nIup3Mb8qZeIcy0AfOLEU1OGX8VDjbWsfw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -476,7 +478,9 @@ namespace MacroCompanyServices.Migrations
                 {
                     b.HasOne("MacroCompanyServices.Domain.Entities.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
                 });

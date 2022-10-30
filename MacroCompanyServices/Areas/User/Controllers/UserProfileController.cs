@@ -3,7 +3,8 @@
 namespace MacroCompanyServices.Areas.User.Controllers
 {
     [Area("User")]
-    public class EmployeeItemsController
+    public class UserProfileController : Controller
     {
+
     }
 }

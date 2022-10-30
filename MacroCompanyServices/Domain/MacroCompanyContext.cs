@@ -11,6 +11,7 @@ namespace MacroCompanyServices.Domain
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<PageData> PagesData { get; set; } = null!;
         public DbSet<ProductType> ProductTypes { get; set; } = null!;
+        public DbSet<CartItem> CartItems { get; set; } = null!;
 
         public MacroCompanyContext(DbContextOptions<MacroCompanyContext> options) : base(options)
         { }
