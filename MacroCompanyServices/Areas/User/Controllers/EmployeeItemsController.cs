@@ -3,6 +3,7 @@ using MacroCompanyServices.Domain;
 using MacroCompanyServices.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MacroCompanyServices.Service;
 
 namespace MacroCompanyServices.Areas.User.Controllers
 {
@@ -73,6 +74,24 @@ namespace MacroCompanyServices.Areas.User.Controllers
             }
 
             return NotFound();
+        }
+
+        public IActionResult Edit(Guid id)
+        {
+            var entity = id == default ? new Employee() : _dataManager.Employees.GetEmployeeById(id);
+            return View(entity);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Employee model)
+        {
+            if (ModelState.IsValid)
+            {
+                _dataManager.Employees.SaveEmployee(model);
+                return RedirectToAction(nameof(EmployeeItemsController.Index), nameof(EmployeeItemsController).CutController());
+            }
+
+            return View(model);
         }
     }
 }

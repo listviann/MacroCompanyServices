@@ -5,6 +5,7 @@ using MacroCompanyServices.Models;
 using MacroCompanyServices.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Security.Claims;
@@ -89,6 +90,30 @@ namespace MacroCompanyServices.Areas.User.Controllers
             }
 
             return NotFound();
+        }
+
+        public IActionResult Edit(Guid id)
+        {
+            List<ProductType> productTypes = _dataManager.ProductTypes.GetProductTypes().ToList();
+            ViewBag.ProductTypes = new SelectList(productTypes, "Id", "Name");
+
+            List<Employee> employees = _dataManager.Employees.GetEmployees().ToList();
+            ViewBag.Employees = new SelectList(employees, "Id", "Name");
+
+            var entity = id == default ? new Product() : _dataManager.Products.GetProductById(id);
+            return View(entity);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Product model)
+        {
+            if (ModelState.IsValid)
+            {
+                _dataManager.Products.SaveProduct(model);
+                return RedirectToAction(nameof(ProductItemsController.Index), nameof(ProductItemsController).CutController());
+            }
+
+            return View(model);
         }
 
         public IActionResult AddToCart(Guid prodId)

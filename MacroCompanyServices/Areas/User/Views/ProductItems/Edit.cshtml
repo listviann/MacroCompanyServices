@@ -1,0 +1,51 @@
+﻿@model Product
+@{
+    string strTitle = "Edit the information about product";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h3>@strTitle</h3>
+    <form asp-area="User" asp-controller="ProductItems" asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="DateAdded" />
+
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="ProductName"></label><br />
+            <input asp-for="ProductName" />
+            <span asp-validation-for="ProductName"></span>
+        </div>
+        <div>
+            <label asp-for="ProductTypeId">Product type</label><br />
+            <select name="ProductTypeId" asp-for="ProductType" asp-items="ViewBag.ProductTypes"></select>
+        </div>
+        <div>
+            <label asp-for="EmployeeId">Employee</label>
+            <select name="EmployeeId" asp-for="Employee" asp-items="ViewBag.Employees"></select>
+        </div>
+        <div>
+            <label asp-for="ProductPrice"></label><br />
+            <input asp-for="ProductPrice" />
+            <span asp-validation-for="ProductPrice"></span>
+        </div>
+        <div>
+            <label asp-for="MetaTitle"></label><br />
+            <input asp-for="MetaTitle" />
+            <span asp-validation-for="MetaTitle"></span>
+        </div>
+        <div>
+            <label asp-for="MetaDescription"></label><br />
+            <textarea asp-for="MetaDescription"></textarea>
+            <span asp-validation-for="MetaDescription"></span>
+        </div>
+        <div>
+            <label asp-for="MetaKeywords"></label><br />
+            <input asp-for="MetaKeywords" />
+            <span asp-validation-for="MetaKeywords"></span>
+        </div>
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+    </form>
+</div>
