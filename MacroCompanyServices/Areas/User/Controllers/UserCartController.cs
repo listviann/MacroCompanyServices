@@ -3,6 +3,7 @@ using MacroCompanyServices.Domain.Entities;
 using MacroCompanyServices.Service;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace MacroCompanyServices.Areas.User.Controllers
 {
@@ -19,94 +20,16 @@ namespace MacroCompanyServices.Areas.User.Controllers
         public IActionResult Index()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return View(_dataManager.CartItems.GetCartItems().Where(c => c.UserId == new Guid(userId)));
+            return View(_dataManager.CartItems.GetCartItems().Include(c => c.Product).Where(c => c.UserId == new Guid(userId)));
         }
-
-        //[HttpPost]
-        //public IActionResult AddToCart(Guid id)
-        //{
-            
-        //    return RedirectToAction("Index");
-        //}
 
         [HttpPost]
         public IActionResult DeleteFromCart(Guid id)
         {
-           
-            return RedirectToAction("Index");
+            _dataManager.CartItems.Delete(id);
+            return RedirectToAction(nameof(UserCartController.Index), nameof(UserCartController).CutController());
         }
 
-        private int IsExists(Guid id)
-        {
-            List<CartItem> productsCart = SessionHelper.GetObjectFromJson<List<CartItem>>(HttpContext.Session, "cart");
-            for (int i = 0; i < productsCart.Count; i++)
-            {
-                if (productsCart[i].ProductId == id)
-                {
-                    return i;
-                }
-            }
 
-            return -1;
-        }
     }
-
-    //    public IActionResult Index()
-    //    {
-    //        var cart = SessionHelper.GetObjectFromJson<List<ProductsCartItem>>(HttpContext.Session, "cart");
-    //        ViewBag.cart = cart;
-    //        return View();
-    //    }
-
-    //    [HttpPost]
-    //    public IActionResult AddToCart(Guid id)
-    //    {
-    //        if (SessionHelper.GetObjectFromJson<List<ProductsCartItem>>(HttpContext.Session, "cart") == null)
-    //        {
-    //            List<ProductsCartItem> productsCart = new List<ProductsCartItem>();
-    //            productsCart.Add(new ProductsCartItem { Id = Guid.NewGuid(), Product = _dataManager.Products.GetProductById(id), Quantity = 1 });
-    //            SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", productsCart);
-    //        }
-    //        else
-    //        {
-    //            List<ProductsCartItem> productsCart = SessionHelper.GetObjectFromJson<List<ProductsCartItem>>(HttpContext.Session, "cart");
-    //            int index = IsExists(id);
-    //            if (index != -1)
-    //            {
-    //                productsCart[index].Quantity++; 
-    //            }
-    //            else
-    //            {
-    //                productsCart.Add(new ProductsCartItem { Product = _dataManager.Products.GetProductById(id), Quantity = 1 });
-    //            }
-
-    //            SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", productsCart);
-    //        }
-    //        return RedirectToAction("Index");
-    //    }
-
-    //    [HttpPost]
-    //    public IActionResult DeleteFromCart(Guid id)
-    //    {
-    //        List<ProductsCartItem> productsCart = SessionHelper.GetObjectFromJson<List<ProductsCartItem>>(HttpContext.Session, "cart");
-    //        int index = IsExists(id);
-    //        productsCart.RemoveAt(index);
-    //        SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", productsCart);
-    //        return RedirectToAction("Index");
-    //    }
-
-    //    private int IsExists(Guid id)
-    //    {
-    //        List<ProductsCartItem> productsCart = SessionHelper.GetObjectFromJson<List<ProductsCartItem>>(HttpContext.Session, "cart");
-    //        for (int i = 0; i < productsCart.Count; i++)
-    //        {
-    //            if (productsCart[i].ProductId == id)
-    //            {
-    //                return i;
-    //            }
-    //        }
-
-    //        return -1;
-    //    }
-    //}
 }

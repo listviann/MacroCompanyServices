@@ -38,7 +38,7 @@ namespace MacroCompanyServices.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("CartItems");
+                    b.ToTable("CartItems", (string)null);
                 });
 
             modelBuilder.Entity("MacroCompanyServices.Domain.Entities.Employee", b =>
@@ -97,7 +97,7 @@ namespace MacroCompanyServices.Migrations
                     b.HasIndex("PhoneNumber")
                         .IsUnique();
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", (string)null);
                 });
 
             modelBuilder.Entity("MacroCompanyServices.Domain.Entities.PageData", b =>
@@ -132,7 +132,7 @@ namespace MacroCompanyServices.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PagesData");
+                    b.ToTable("PagesData", (string)null);
 
                     b.HasData(
                         new
@@ -213,7 +213,7 @@ namespace MacroCompanyServices.Migrations
 
                     b.HasIndex("ProductTypeId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("MacroCompanyServices.Domain.Entities.ProductType", b =>
@@ -232,7 +232,7 @@ namespace MacroCompanyServices.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("ProductTypes");
+                    b.ToTable("ProductTypes", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
