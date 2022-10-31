@@ -6,6 +6,7 @@ using MacroCompanyServices.Domain.Entities;
 using MacroCompanyServices.Domain.Repositories.Abstract;
 using MacroCompanyServices.Domain.Repositories.EntityFramework;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using MacroCompanyServices.Loggers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,9 @@ builder.Services.AddTransient<IProductRepository, EFProductRepository>();
 builder.Services.AddTransient<IProductTypeRepository, EFProductTypeRepository>();
 builder.Services.AddTransient<ICartItemRepository, EFCartItemRepository>();
 builder.Services.AddTransient<DataManager>();
+
+// Add loggers
+builder.Logging.AddTextFile(Path.Combine(Directory.GetCurrentDirectory(), "loginformation.txt"));
 
 // Add the database context
 builder.Services.AddDbContext<MacroCompanyContext>(options => options.UseSqlServer(Config.ConnectionString));

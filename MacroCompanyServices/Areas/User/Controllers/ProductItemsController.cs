@@ -17,11 +17,13 @@ namespace MacroCompanyServices.Areas.User.Controllers
     {
         private readonly DataManager _dataManager;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly ILogger<ProductItemsController> _logger;
 
-        public ProductItemsController(DataManager dataManager, UserManager<IdentityUser> userManager)
+        public ProductItemsController(DataManager dataManager, UserManager<IdentityUser> userManager, ILogger<ProductItemsController> logger)
         {
             _dataManager = dataManager;
             _userManager = userManager;
+            _logger = logger;
         }
 
         public IActionResult Index(string name, Guid productType, Guid employee,
@@ -109,7 +111,10 @@ namespace MacroCompanyServices.Areas.User.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
                 _dataManager.Products.SaveProduct(model);
+                _logger.LogDebug($"User with ID: {userId} added or modified a product record with ID: {model.Id}");
                 return RedirectToAction(nameof(ProductItemsController.Index), nameof(ProductItemsController).CutController());
             }
 
@@ -123,6 +128,7 @@ namespace MacroCompanyServices.Areas.User.Controllers
             Debug.WriteLine(userId);
 
             _dataManager.CartItems.Save(prodId, new Guid(userId));
+            _logger.LogDebug($"User with ID: {userId} added an item with ID: {prodId} to the products cart");
             return RedirectToAction(nameof(ProductItemsController.Index), nameof(ProductItemsController).CutController());
         }
     }

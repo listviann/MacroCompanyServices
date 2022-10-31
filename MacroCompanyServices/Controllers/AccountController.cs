@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MacroCompanyServices.Models;
 using MacroCompanyServices.Service;
+using MacroCompanyServices.Loggers;
+using System.Security.Claims;
 
 namespace MacroCompanyServices.Controllers
 {
@@ -12,12 +14,14 @@ namespace MacroCompanyServices.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager, ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _logger = logger;
         }
 
         [AllowAnonymous]
@@ -38,6 +42,7 @@ namespace MacroCompanyServices.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
+                    _logger.LogDebug($"A new user {user.Id} - {user.UserName} registerd at {DateTime.Now}");
                     return Redirect(returnUrl ?? "/");
                 }
                 else
@@ -74,6 +79,7 @@ namespace MacroCompanyServices.Controllers
 
                     if (signInResult.Succeeded)
                     {
+                        _logger.LogDebug($"User {user.Id} - {user.UserName} logged in at {DateTime.Now}");
                         return Redirect(returnUrl ?? "/");
                     }
                 }
@@ -87,7 +93,11 @@ namespace MacroCompanyServices.Controllers
         [Authorize]
         public async Task<IActionResult> Logout()
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             await _signInManager.SignOutAsync();
+            _logger.LogDebug($"User with ID: {userId} logged out at {DateTime.Now}");
+
             return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).CutController());
         }
     }

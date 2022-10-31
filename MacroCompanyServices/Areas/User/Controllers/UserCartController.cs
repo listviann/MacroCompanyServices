@@ -13,10 +13,12 @@ namespace MacroCompanyServices.Areas.User.Controllers
     public class UserCartController : Controller
     {
         private readonly DataManager _dataManager;
+        private readonly ILogger<UserCartController> _logger;
 
-        public UserCartController(DataManager dataManager)
+        public UserCartController(DataManager dataManager, ILogger<UserCartController> logger)
         {
             _dataManager = dataManager;
+            _logger = logger;
         }
 
         public IActionResult Index(string name, Guid productType, int page = 1, CartItemsSortState sortOrder = CartItemsSortState.ProductNameAsc)
@@ -52,7 +54,9 @@ namespace MacroCompanyServices.Areas.User.Controllers
         [HttpPost]
         public IActionResult DeleteFromCart(Guid id)
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             _dataManager.CartItems.Delete(id);
+            _logger.LogDebug($"User with ID: {userId} deleted a product with ID: {id} from the products cart");
             return RedirectToAction(nameof(UserCartController.Index), nameof(UserCartController).CutController());
         }
     }

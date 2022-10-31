@@ -11,10 +11,12 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
     public class PageDataItemsController : Controller
     {
         private readonly DataManager _dataManager;
+        private readonly ILogger<PageDataItemsController> _logger;
 
-        public PageDataItemsController(DataManager dataManager)
+        public PageDataItemsController(DataManager dataManager, ILogger<PageDataItemsController> logger)
         {
             _dataManager = dataManager;
+            _logger = logger;
         }
 
         public IActionResult Index(string codeWord, int page = 1, PagesDataSortState sortOrder = PagesDataSortState.CodeWordAsc)
@@ -61,6 +63,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 _dataManager.PagesData.SavePageData(model);
+                _logger.LogDebug($"The administrator added or modified data about the page with ID: {model.Id}");
                 return RedirectToAction(nameof(PageDataItemsController.Index), nameof(PageDataItemsController).CutController());
             }
 

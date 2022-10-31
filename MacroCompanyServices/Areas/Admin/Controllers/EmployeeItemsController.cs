@@ -12,10 +12,12 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
     public class EmployeeItemsController : Controller
     {
         public readonly DataManager _dataManager;
+        private readonly ILogger<EmployeeItemsController> _logger;
 
-        public EmployeeItemsController(DataManager dataManager)
+        public EmployeeItemsController(DataManager dataManager, ILogger<EmployeeItemsController> logger)
         {
             _dataManager = dataManager;
+            _logger = logger;
         }
 
         public IActionResult Index(string name, string email, int page = 1, EmployeesSortState sortOrder = EmployeesSortState.EmployeeNameAsc)
@@ -74,6 +76,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 _dataManager.Employees.SaveEmployee(model);
+                _logger.LogDebug($"The administrator added or modified an employee with ID: {model.Id}");
                 return RedirectToAction(nameof(EmployeeItemsController.Index), nameof(EmployeeItemsController).CutController());
             }
 
@@ -84,6 +87,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
         public IActionResult Delete(Guid id)
         {
             _dataManager.Employees.DeleteEmployee(id);
+            _logger.LogDebug($"The administrator deleted an employee with ID: {id}");
             return RedirectToAction(nameof(EmployeeItemsController.Index), nameof(EmployeeItemsController).CutController());
         }
     }

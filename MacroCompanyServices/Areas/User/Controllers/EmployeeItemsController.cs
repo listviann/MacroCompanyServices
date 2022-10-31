@@ -4,6 +4,7 @@ using MacroCompanyServices.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MacroCompanyServices.Service;
+using System.Security.Claims;
 
 namespace MacroCompanyServices.Areas.User.Controllers
 {
@@ -11,10 +12,12 @@ namespace MacroCompanyServices.Areas.User.Controllers
     public class EmployeeItemsController : Controller
     {
         private readonly DataManager _dataManager;
+        private readonly ILogger<EmployeeItemsController> _logger;
 
-        public EmployeeItemsController(DataManager dataManager)
+        public EmployeeItemsController(DataManager dataManager, ILogger<EmployeeItemsController> logger)
         {
             _dataManager = dataManager;
+            _logger = logger;
         }
 
         public IActionResult Index(string name, string email, int page = 1, EmployeesSortState sortOrder = EmployeesSortState.EmployeeNameAsc)
@@ -87,7 +90,10 @@ namespace MacroCompanyServices.Areas.User.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
                 _dataManager.Employees.SaveEmployee(model);
+                _logger.LogDebug($"User with ID: {userId} added or modified an employee record with ID: {model.Id}");
                 return RedirectToAction(nameof(EmployeeItemsController.Index), nameof(EmployeeItemsController).CutController());
             }
 

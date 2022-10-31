@@ -12,10 +12,12 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
     public class ProductItemsController : Controller
     {
         private readonly DataManager _dataManager;
+        private readonly ILogger<ProductItemsController> _logger;
 
-        public ProductItemsController(DataManager dataManager)
+        public ProductItemsController(DataManager dataManager, ILogger<ProductItemsController> logger)
         {
             _dataManager = dataManager;
+            _logger = logger;
         }
 
         public IActionResult Index(string name, Guid productType, Guid employee,
@@ -87,6 +89,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 _dataManager.Products.SaveProduct(model);
+                _logger.LogDebug($"The administrator added or modified a product with ID: {model.Id}");
                 return RedirectToAction(nameof(ProductItemsController.Index), nameof(ProductItemsController).CutController());
             }
 
@@ -97,6 +100,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
         public IActionResult Delete(Guid id)
         {
             _dataManager.Products.DeleteProduct(id);
+            _logger.LogDebug($"The administrator deleted a product with ID: {id}");
             return RedirectToAction(nameof(ProductItemsController.Index), nameof(ProductItemsController).CutController());
         }
     }

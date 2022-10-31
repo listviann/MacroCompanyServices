@@ -12,10 +12,12 @@ namespace MacroCompanyServices.Areas.User.Controllers
     public class UserProfileController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly ILogger<UserProfileController> _logger;
 
-        public UserProfileController(UserManager<IdentityUser> userManager)
+        public UserProfileController(UserManager<IdentityUser> userManager, ILogger<UserProfileController> logger)
         {
             _userManager = userManager;
+            _logger = logger;
         }
 
         public IActionResult Index()
@@ -43,8 +45,11 @@ namespace MacroCompanyServices.Areas.User.Controllers
 
             if (ModelState.IsValid)
             {
+                string temp = user.UserName;
                 user.UserName = model.UserName;
                 var result = await _userManager.UpdateAsync(user);
+
+                _logger.LogDebug($"User with ID: {user.Id} changed his username from {temp} to {user.UserName}");
                 return RedirectToAction(nameof(UserProfileController.Index), nameof(UserProfileController).CutController());
             }
             
@@ -66,6 +71,7 @@ namespace MacroCompanyServices.Areas.User.Controllers
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 var user = await _userManager.FindByIdAsync(userId);
                 var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+                _logger.LogDebug($"User with ID: {userId} changed password");
                 return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).CutController());
             }
 
