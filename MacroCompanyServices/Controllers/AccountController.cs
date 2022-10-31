@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MacroCompanyServices.Models;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Diagnostics;
 
 namespace MacroCompanyServices.Controllers
 {
@@ -27,6 +28,7 @@ namespace MacroCompanyServices.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterViewModel model, string? returnUrl)
         {
             if (ModelState.IsValid)
@@ -36,6 +38,7 @@ namespace MacroCompanyServices.Controllers
                 await _userManager.AddToRoleAsync(user, "ordinary_user");
                 if (result.Succeeded)
                 {
+                    Debug.WriteLine(user.Id);
                     await _signInManager.SignInAsync(user, false);
                     return Redirect(returnUrl ?? "/");
                 }
