@@ -1,7 +1,11 @@
 ﻿@model RegisterViewModel
+@{
+    string strTitle = "Sign up";
+    ViewBag.Title = strTitle;
+}
 
 <div>
-    <h1>Sign in the personal account</h1>
+    <h1>@strTitle</h1>
     <div>
         <form asp-area="" asp-controller="Account" asp-action="Register" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
             <div asp-validation-summary="All"></div>
