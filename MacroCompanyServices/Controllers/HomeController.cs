@@ -1,5 +1,6 @@
 ﻿using MacroCompanyServices.Domain;
 using MacroCompanyServices.Models;
+using MacroCompanyServices.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Diagnostics;
 using System.Diagnostics;
@@ -17,6 +18,16 @@ namespace MacroCompanyServices.Controllers
 
         public IActionResult Index()
         {
+            if (User.Identity!.IsAuthenticated && User.IsInRole("admin"))
+            {
+                return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).CutController(), new { area = "Admin" });
+            }
+
+            if (User.Identity!.IsAuthenticated && User.IsInRole("ordinary_user"))
+            {
+                return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).CutController(), new { area = "User" });
+            }
+
             return View(_dataManager.PagesData.GetPageDataByCodeWord("IndexPage"));
         }
 

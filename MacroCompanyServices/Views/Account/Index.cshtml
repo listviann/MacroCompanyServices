@@ -1,0 +1,26 @@
+﻿@{
+    string strTitle = "Account";
+    ViewBag.Title = strTitle;
+}
+
+<h1>@strTitle</h1>
+<div>
+    @if(!User.Identity!.IsAuthenticated)
+    {
+        <div>
+            <p><a asp-area="" asp-controller="Account" asp-action="Login">Sign in</a> | <a asp-area="" asp-controller="Account" asp-action="Register">Sign up</a></p>
+        </div>
+    }
+    @if (User.Identity!.IsAuthenticated && User.IsInRole("admin"))
+    {
+        <div>
+            <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+                <input type="submit" value="Logout" />
+            </form>
+        </div>
+    }
+@*    @if (User.Identity.IsAuthenticated && User.IsInRole("ordinary_user"))
+    {
+        <p><a asp-area="User" asp-controller="UserProfile" asp-action="Index">Watch data</a></p>
+    }*@
+</div>

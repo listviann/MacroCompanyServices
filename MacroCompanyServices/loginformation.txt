@@ -6378,3 +6378,2004 @@ Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqll
 Application is shutting down...
 Hosting stopping
 Hosting stopped
+Hosting starting
+Now listening on: https://localhost:7224
+Now listening on: http://localhost:5224
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: D:\CSharpProjects1\MacroCompanyServices\MacroCompanyServices\
+Hosting started
+An 'IServiceProvider' was created for internal use by Entity Framework.
+The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+No store type was specified for the decimal property 'Salary' on entity type 'Employee'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<IdentityUser>()
+    .FirstOrDefault(e => EF.Property<string>(e, "Id") == __p_0)'
+Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUser.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityUser.AccessFailedCount (int) Required, 1], [Property: IdentityUser.ConcurrencyStamp (string) Concurrency, 2], [Property: IdentityUser.Email (string) MaxLength(256), 3], [Property: IdentityUser.EmailConfirmed (bool) Required, 4], [Property: IdentityUser.LockoutEnabled (bool) Required, 5], [Property: IdentityUser.LockoutEnd (DateTimeOffset?), 6], [Property: IdentityUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: IdentityUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: IdentityUser.PasswordHash (string), 9], [Property: IdentityUser.PhoneNumber (string), 10], [Property: IdentityUser.PhoneNumberConfirmed (bool) Required, 11], [Property: IdentityUser.SecurityStamp (string), 12], [Property: IdentityUser.TwoFactorEnabled (bool) Required, 13], [Property: IdentityUser.UserName (string) MaxLength(256), 14] }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.Id == @__p_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUser>, 
+        MacroCompanyServices.Domain.MacroCompanyContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (168ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+Executed DbCommand (408ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+Context 'MacroCompanyContext' started tracking 'IdentityUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityUserClaim<string>>()
+    .Where(uc => uc.UserId.Equals(__user_Id_0))
+    .Select(c => c.ToClaim())'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Claim>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: IdentityUserClaim<string>.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: IdentityUserClaim<string>.ClaimType (string), 1], [Property: IdentityUserClaim<string>.ClaimValue (string), 2], [Property: IdentityUserClaim<string>.UserId (string) Required FK Index, 3] }
+        SELECT a.Id, a.ClaimType, a.ClaimValue, a.UserId
+        FROM AspNetUserClaims AS a
+        WHERE a.UserId == @__user_Id_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Claim>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (4ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+Executed DbCommand (23ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityUserRole<string>>()
+    .Join(
+        inner: DbSet<IdentityRole>(), 
+        outerKeySelector: userRole => userRole.RoleId, 
+        innerKeySelector: role => role.Id, 
+        resultSelector: (userRole, role) => new { 
+            userRole = userRole, 
+            role = role
+         })
+    .Where(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.userRole.UserId.Equals(__userId_0))
+    .Select(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.role.Name)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<string>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT a0.Name
+        FROM AspNetUserRoles AS a
+        INNER JOIN AspNetRoles AS a0 ON a.RoleId == a0.Id
+        WHERE a.UserId == @__userId_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, string>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (8ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+Executed DbCommand (20ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityRole>()
+    .FirstOrDefault(r => r.NormalizedName == __normalizedName_0)'
+Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityRole>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityRole>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityRole.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityRole.ConcurrencyStamp (string) Concurrency, 1], [Property: IdentityRole.Name (string) MaxLength(256), 2], [Property: IdentityRole.NormalizedName (string) Index MaxLength(256), 3] }
+            SELECT TOP(1) a.Id, a.ConcurrencyStamp, a.Name, a.NormalizedName
+            FROM AspNetRoles AS a
+            WHERE a.NormalizedName == @__normalizedName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityRole>, 
+        MacroCompanyServices.Domain.MacroCompanyContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (5ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Executed DbCommand (16ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Context 'MacroCompanyContext' started tracking 'IdentityRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityRoleClaim<string>>()
+    .Where(rc => rc.RoleId.Equals(__role_Id_0))
+    .Select(c => new Claim(
+        c.ClaimType, 
+        c.ClaimValue
+    ))'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Claim>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Client Projections:
+            0 -> 0
+            1 -> 1
+        SELECT a.ClaimType, a.ClaimValue
+        FROM AspNetRoleClaims AS a
+        WHERE a.RoleId == @__role_Id_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Claim>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (13ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+Executed DbCommand (15ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<PageData>()
+    .FirstOrDefault(p => p.CodeWord == __codeWord_0)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<PageData>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: PageData.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: PageData.CodeWord (string) Required, 1], [Property: PageData.DateAdded (DateTime) Required, 2], [Property: PageData.MetaDescription (string), 3], [Property: PageData.MetaKeywords (string), 4], [Property: PageData.MetaTitle (string), 5], [Property: PageData.Text (string) Required, 6], [Property: PageData.Title (string) Required, 7] }
+        SELECT TOP(1) p.Id, p.CodeWord, p.DateAdded, p.MetaDescription, p.MetaKeywords, p.MetaTitle, p.Text, p.Title
+        FROM PagesData AS p
+        WHERE p.CodeWord == @__codeWord_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, PageData>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (6ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (22ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+User with ID: 4784f618-2d8d-4a42-a78f-aae1ecec4bf5 logged out at 01.11.2022 11:47:18
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (6ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (21ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<IdentityUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUser.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityUser.AccessFailedCount (int) Required, 1], [Property: IdentityUser.ConcurrencyStamp (string) Concurrency, 2], [Property: IdentityUser.Email (string) MaxLength(256), 3], [Property: IdentityUser.EmailConfirmed (bool) Required, 4], [Property: IdentityUser.LockoutEnabled (bool) Required, 5], [Property: IdentityUser.LockoutEnd (DateTimeOffset?), 6], [Property: IdentityUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: IdentityUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: IdentityUser.PasswordHash (string), 9], [Property: IdentityUser.PhoneNumber (string), 10], [Property: IdentityUser.PhoneNumberConfirmed (bool) Required, 11], [Property: IdentityUser.SecurityStamp (string), 12], [Property: IdentityUser.TwoFactorEnabled (bool) Required, 13], [Property: IdentityUser.UserName (string) MaxLength(256), 14] }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.NormalizedUserName == @__normalizedUserName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUser>, 
+        MacroCompanyServices.Domain.MacroCompanyContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (5ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Executed DbCommand (18ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Context 'MacroCompanyContext' started tracking 'IdentityUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (5ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+Executed DbCommand (15ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (5ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+Executed DbCommand (23ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (8ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Executed DbCommand (42ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Context 'MacroCompanyContext' started tracking 'IdentityRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (5ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+Executed DbCommand (9ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+User d6145a4b-ed49-4aeb-a2f4-9a7274fba655 - test2 logged in at 01.11.2022 11:47:28
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (5ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (13ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<Product>()
+    .Include(t => t.ProductType)
+    .Include(e => e.Employee)
+    .OrderBy(p => p.ProductName)
+    .Count()'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<int>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT COUNT(*)
+        FROM Products AS p), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, int>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (5ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<Product>()
+    .Include(t => t.ProductType)
+    .Include(e => e.Employee)
+    .OrderBy(p => p.ProductName)
+    .Skip(__p_0)
+    .Take(__p_1)'
+Including navigation: 'Product.ProductType'.
+Including navigation: 'Product.Employee'.
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Product>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: Product.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Product.DateAdded (DateTime) Required, 1], [Property: Product.EmployeeId (Guid) Required FK Index, 2], [Property: Product.MetaDescription (string), 3], [Property: Product.MetaKeywords (string), 4], [Property: Product.MetaTitle (string), 5], [Property: Product.ProductName (string) Required MaxLength(200), 6], [Property: Product.ProductPrice (decimal) Required, 7], [Property: Product.ProductTypeId (Guid) Required FK Index, 8], [Property: Product.Text (string), 9], [Property: Product.Title (string), 10] }
+            1 -> Dictionary<IProperty, int> { [Property: ProductType.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 11], [Property: ProductType.Name (string) Required Index MaxLength(150), 12] }
+            2 -> Dictionary<IProperty, int> { [Property: Employee.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 13], [Property: Employee.BirthDate (DateTime) Required, 14], [Property: Employee.DateAdded (DateTime) Required, 15], [Property: Employee.Email (string) Required Index MaxLength(254), 16], [Property: Employee.MetaDescription (string), 17], [Property: Employee.MetaKeywords (string), 18], [Property: Employee.MetaTitle (string), 19], [Property: Employee.Name (string) Required MaxLength(150), 20], [Property: Employee.PhoneNumber (string) Required Index, 21], [Property: Employee.Position (EmployeePosition) Required, 22], [Property: Employee.Salary (decimal) Required, 23], [Property: Employee.Text (string), 24], [Property: Employee.Title (string), 25] }
+        SELECT t.Id, t.DateAdded, t.EmployeeId, t.MetaDescription, t.MetaKeywords, t.MetaTitle, t.ProductName, t.ProductPrice, t.ProductTypeId, t.Text, t.Title, p0.Id, p0.Name, e.Id, e.BirthDate, e.DateAdded, e.Email, e.MetaDescription, e.MetaKeywords, e.MetaTitle, e.Name, e.PhoneNumber, e.Position, e.Salary, e.Text, e.Title
+        FROM 
+        (
+            SELECT p.Id, p.DateAdded, p.EmployeeId, p.MetaDescription, p.MetaKeywords, p.MetaTitle, p.ProductName, p.ProductPrice, p.ProductTypeId, p.Text, p.Title
+            FROM Products AS p
+            ORDER BY p.ProductName ASC
+            OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+        ) AS t
+        INNER JOIN ProductTypes AS p0 ON t.ProductTypeId == p0.Id
+        INNER JOIN Employees AS e ON t.EmployeeId == e.Id
+        ORDER BY t.ProductName ASC), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Product>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (32ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[DateAdded], [t].[EmployeeId], [t].[MetaDescription], [t].[MetaKeywords], [t].[MetaTitle], [t].[ProductName], [t].[ProductPrice], [t].[ProductTypeId], [t].[Text], [t].[Title], [p0].[Id], [p0].[Name], [e].[Id], [e].[BirthDate], [e].[DateAdded], [e].[Email], [e].[MetaDescription], [e].[MetaKeywords], [e].[MetaTitle], [e].[Name], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Text], [e].[Title]
+FROM (
+    SELECT [p].[Id], [p].[DateAdded], [p].[EmployeeId], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[ProductName], [p].[ProductPrice], [p].[ProductTypeId], [p].[Text], [p].[Title]
+    FROM [Products] AS [p]
+    ORDER BY [p].[ProductName]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [ProductTypes] AS [p0] ON [t].[ProductTypeId] = [p0].[Id]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[ProductName]
+Executed DbCommand (32ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[DateAdded], [t].[EmployeeId], [t].[MetaDescription], [t].[MetaKeywords], [t].[MetaTitle], [t].[ProductName], [t].[ProductPrice], [t].[ProductTypeId], [t].[Text], [t].[Title], [p0].[Id], [p0].[Name], [e].[Id], [e].[BirthDate], [e].[DateAdded], [e].[Email], [e].[MetaDescription], [e].[MetaKeywords], [e].[MetaTitle], [e].[Name], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Text], [e].[Title]
+FROM (
+    SELECT [p].[Id], [p].[DateAdded], [p].[EmployeeId], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[ProductName], [p].[ProductPrice], [p].[ProductTypeId], [p].[Text], [p].[Title]
+    FROM [Products] AS [p]
+    ORDER BY [p].[ProductName]
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN [ProductTypes] AS [p0] ON [t].[ProductTypeId] = [p0].[Id]
+INNER JOIN [Employees] AS [e] ON [t].[EmployeeId] = [e].[Id]
+ORDER BY [t].[ProductName]
+Context 'MacroCompanyContext' started tracking 'Product' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'ProductType' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'Product' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'Product' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<ProductType>()'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<ProductType>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: ProductType.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: ProductType.Name (string) Required Index MaxLength(150), 1] }
+        SELECT p.Id, p.Name
+        FROM ProductTypes AS p), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ProductType>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (4ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Name]
+FROM [ProductTypes] AS [p]
+Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Name]
+FROM [ProductTypes] AS [p]
+Context 'MacroCompanyContext' started tracking 'ProductType' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'ProductType' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'ProductType' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<Employee>()'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Employee>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Employee.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Employee.BirthDate (DateTime) Required, 1], [Property: Employee.DateAdded (DateTime) Required, 2], [Property: Employee.Email (string) Required Index MaxLength(254), 3], [Property: Employee.MetaDescription (string), 4], [Property: Employee.MetaKeywords (string), 5], [Property: Employee.MetaTitle (string), 6], [Property: Employee.Name (string) Required MaxLength(150), 7], [Property: Employee.PhoneNumber (string) Required Index, 8], [Property: Employee.Position (EmployeePosition) Required, 9], [Property: Employee.Salary (decimal) Required, 10], [Property: Employee.Text (string), 11], [Property: Employee.Title (string), 12] }
+        SELECT e.Id, e.BirthDate, e.DateAdded, e.Email, e.MetaDescription, e.MetaKeywords, e.MetaTitle, e.Name, e.PhoneNumber, e.Position, e.Salary, e.Text, e.Title
+        FROM Employees AS e), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Employee>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (5ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [e].[Id], [e].[BirthDate], [e].[DateAdded], [e].[Email], [e].[MetaDescription], [e].[MetaKeywords], [e].[MetaTitle], [e].[Name], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Text], [e].[Title]
+FROM [Employees] AS [e]
+Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [e].[Id], [e].[BirthDate], [e].[DateAdded], [e].[Email], [e].[MetaDescription], [e].[MetaKeywords], [e].[MetaTitle], [e].[Name], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Text], [e].[Title]
+FROM [Employees] AS [e]
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+User with ID: d6145a4b-ed49-4aeb-a2f4-9a7274fba655 logged out at 01.11.2022 11:47:51
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (9ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (23ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Application is shutting down...
+Hosting stopping
+Hosting stopped
+Hosting starting
+Now listening on: https://localhost:7224
+Now listening on: http://localhost:5224
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: D:\CSharpProjects1\MacroCompanyServices\MacroCompanyServices\
+Hosting started
+An 'IServiceProvider' was created for internal use by Entity Framework.
+The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+No store type was specified for the decimal property 'Salary' on entity type 'Employee'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<PageData>()
+    .FirstOrDefault(p => p.CodeWord == __codeWord_0)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<PageData>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: PageData.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: PageData.CodeWord (string) Required, 1], [Property: PageData.DateAdded (DateTime) Required, 2], [Property: PageData.MetaDescription (string), 3], [Property: PageData.MetaKeywords (string), 4], [Property: PageData.MetaTitle (string), 5], [Property: PageData.Text (string) Required, 6], [Property: PageData.Title (string) Required, 7] }
+        SELECT TOP(1) p.Id, p.CodeWord, p.DateAdded, p.MetaDescription, p.MetaKeywords, p.MetaTitle, p.Text, p.Title
+        FROM PagesData AS p
+        WHERE p.CodeWord == @__codeWord_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, PageData>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (246ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (245ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Application is shutting down...
+Hosting stopping
+Hosting stopped
+Hosting starting
+Now listening on: https://localhost:7224
+Now listening on: http://localhost:5224
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: D:\CSharpProjects1\MacroCompanyServices\MacroCompanyServices\
+Hosting started
+An 'IServiceProvider' was created for internal use by Entity Framework.
+The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+No store type was specified for the decimal property 'Salary' on entity type 'Employee'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<PageData>()
+    .FirstOrDefault(p => p.CodeWord == __codeWord_0)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<PageData>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: PageData.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: PageData.CodeWord (string) Required, 1], [Property: PageData.DateAdded (DateTime) Required, 2], [Property: PageData.MetaDescription (string), 3], [Property: PageData.MetaKeywords (string), 4], [Property: PageData.MetaTitle (string), 5], [Property: PageData.Text (string) Required, 6], [Property: PageData.Title (string) Required, 7] }
+        SELECT TOP(1) p.Id, p.CodeWord, p.DateAdded, p.MetaDescription, p.MetaKeywords, p.MetaTitle, p.Text, p.Title
+        FROM PagesData AS p
+        WHERE p.CodeWord == @__codeWord_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, PageData>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (290ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (284ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (9ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (18ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Application is shutting down...
+Hosting stopping
+Hosting stopped
+Hosting starting
+Now listening on: https://localhost:7224
+Now listening on: http://localhost:5224
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: D:\CSharpProjects1\MacroCompanyServices\MacroCompanyServices\
+Hosting started
+An 'IServiceProvider' was created for internal use by Entity Framework.
+The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+No store type was specified for the decimal property 'Salary' on entity type 'Employee'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<PageData>()
+    .FirstOrDefault(p => p.CodeWord == __codeWord_0)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<PageData>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: PageData.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: PageData.CodeWord (string) Required, 1], [Property: PageData.DateAdded (DateTime) Required, 2], [Property: PageData.MetaDescription (string), 3], [Property: PageData.MetaKeywords (string), 4], [Property: PageData.MetaTitle (string), 5], [Property: PageData.Text (string) Required, 6], [Property: PageData.Title (string) Required, 7] }
+        SELECT TOP(1) p.Id, p.CodeWord, p.DateAdded, p.MetaDescription, p.MetaKeywords, p.MetaTitle, p.Text, p.Title
+        FROM PagesData AS p
+        WHERE p.CodeWord == @__codeWord_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, PageData>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (213ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (328ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<IdentityUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUser.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityUser.AccessFailedCount (int) Required, 1], [Property: IdentityUser.ConcurrencyStamp (string) Concurrency, 2], [Property: IdentityUser.Email (string) MaxLength(256), 3], [Property: IdentityUser.EmailConfirmed (bool) Required, 4], [Property: IdentityUser.LockoutEnabled (bool) Required, 5], [Property: IdentityUser.LockoutEnd (DateTimeOffset?), 6], [Property: IdentityUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: IdentityUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: IdentityUser.PasswordHash (string), 9], [Property: IdentityUser.PhoneNumber (string), 10], [Property: IdentityUser.PhoneNumberConfirmed (bool) Required, 11], [Property: IdentityUser.SecurityStamp (string), 12], [Property: IdentityUser.TwoFactorEnabled (bool) Required, 13], [Property: IdentityUser.UserName (string) MaxLength(256), 14] }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.NormalizedUserName == @__normalizedUserName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUser>, 
+        MacroCompanyServices.Domain.MacroCompanyContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Executed DbCommand (64ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Context 'MacroCompanyContext' started tracking 'IdentityUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityUserClaim<string>>()
+    .Where(uc => uc.UserId.Equals(__user_Id_0))
+    .Select(c => c.ToClaim())'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Claim>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: IdentityUserClaim<string>.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: IdentityUserClaim<string>.ClaimType (string), 1], [Property: IdentityUserClaim<string>.ClaimValue (string), 2], [Property: IdentityUserClaim<string>.UserId (string) Required FK Index, 3] }
+        SELECT a.Id, a.ClaimType, a.ClaimValue, a.UserId
+        FROM AspNetUserClaims AS a
+        WHERE a.UserId == @__user_Id_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Claim>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+Executed DbCommand (11ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityUserRole<string>>()
+    .Join(
+        inner: DbSet<IdentityRole>(), 
+        outerKeySelector: userRole => userRole.RoleId, 
+        innerKeySelector: role => role.Id, 
+        resultSelector: (userRole, role) => new { 
+            userRole = userRole, 
+            role = role
+         })
+    .Where(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.userRole.UserId.Equals(__userId_0))
+    .Select(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.role.Name)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<string>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT a0.Name
+        FROM AspNetUserRoles AS a
+        INNER JOIN AspNetRoles AS a0 ON a.RoleId == a0.Id
+        WHERE a.UserId == @__userId_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, string>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (4ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityRole>()
+    .FirstOrDefault(r => r.NormalizedName == __normalizedName_0)'
+Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityRole>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityRole>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityRole.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityRole.ConcurrencyStamp (string) Concurrency, 1], [Property: IdentityRole.Name (string) MaxLength(256), 2], [Property: IdentityRole.NormalizedName (string) Index MaxLength(256), 3] }
+            SELECT TOP(1) a.Id, a.ConcurrencyStamp, a.Name, a.NormalizedName
+            FROM AspNetRoles AS a
+            WHERE a.NormalizedName == @__normalizedName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityRole>, 
+        MacroCompanyServices.Domain.MacroCompanyContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (5ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Executed DbCommand (18ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Context 'MacroCompanyContext' started tracking 'IdentityRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityRoleClaim<string>>()
+    .Where(rc => rc.RoleId.Equals(__role_Id_0))
+    .Select(c => new Claim(
+        c.ClaimType, 
+        c.ClaimValue
+    ))'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Claim>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Client Projections:
+            0 -> 0
+            1 -> 1
+        SELECT a.ClaimType, a.ClaimValue
+        FROM AspNetRoleClaims AS a
+        WHERE a.RoleId == @__role_Id_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Claim>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (5ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+Executed DbCommand (7ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+User 4784f618-2d8d-4a42-a78f-aae1ecec4bf5 - admin logged in at 01.11.2022 11:54:54
+'MacroCompanyContext' disposed.
+User with ID: 4784f618-2d8d-4a42-a78f-aae1ecec4bf5 logged out at 01.11.2022 11:54:59
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (2ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (7ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Application is shutting down...
+Hosting stopping
+Hosting stopped
+Hosting starting
+Now listening on: https://localhost:7224
+Now listening on: http://localhost:5224
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: D:\CSharpProjects1\MacroCompanyServices\MacroCompanyServices\
+Hosting started
+An 'IServiceProvider' was created for internal use by Entity Framework.
+The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+No store type was specified for the decimal property 'Salary' on entity type 'Employee'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<PageData>()
+    .FirstOrDefault(p => p.CodeWord == __codeWord_0)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<PageData>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: PageData.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: PageData.CodeWord (string) Required, 1], [Property: PageData.DateAdded (DateTime) Required, 2], [Property: PageData.MetaDescription (string), 3], [Property: PageData.MetaKeywords (string), 4], [Property: PageData.MetaTitle (string), 5], [Property: PageData.Text (string) Required, 6], [Property: PageData.Title (string) Required, 7] }
+        SELECT TOP(1) p.Id, p.CodeWord, p.DateAdded, p.MetaDescription, p.MetaKeywords, p.MetaTitle, p.Text, p.Title
+        FROM PagesData AS p
+        WHERE p.CodeWord == @__codeWord_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, PageData>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (112ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (147ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<IdentityUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUser.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityUser.AccessFailedCount (int) Required, 1], [Property: IdentityUser.ConcurrencyStamp (string) Concurrency, 2], [Property: IdentityUser.Email (string) MaxLength(256), 3], [Property: IdentityUser.EmailConfirmed (bool) Required, 4], [Property: IdentityUser.LockoutEnabled (bool) Required, 5], [Property: IdentityUser.LockoutEnd (DateTimeOffset?), 6], [Property: IdentityUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: IdentityUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: IdentityUser.PasswordHash (string), 9], [Property: IdentityUser.PhoneNumber (string), 10], [Property: IdentityUser.PhoneNumberConfirmed (bool) Required, 11], [Property: IdentityUser.SecurityStamp (string), 12], [Property: IdentityUser.TwoFactorEnabled (bool) Required, 13], [Property: IdentityUser.UserName (string) MaxLength(256), 14] }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.NormalizedUserName == @__normalizedUserName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUser>, 
+        MacroCompanyServices.Domain.MacroCompanyContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Executed DbCommand (56ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Context 'MacroCompanyContext' started tracking 'IdentityUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityUserClaim<string>>()
+    .Where(uc => uc.UserId.Equals(__user_Id_0))
+    .Select(c => c.ToClaim())'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Claim>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: IdentityUserClaim<string>.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: IdentityUserClaim<string>.ClaimType (string), 1], [Property: IdentityUserClaim<string>.ClaimValue (string), 2], [Property: IdentityUserClaim<string>.UserId (string) Required FK Index, 3] }
+        SELECT a.Id, a.ClaimType, a.ClaimValue, a.UserId
+        FROM AspNetUserClaims AS a
+        WHERE a.UserId == @__user_Id_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Claim>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (4ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+Executed DbCommand (9ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityUserRole<string>>()
+    .Join(
+        inner: DbSet<IdentityRole>(), 
+        outerKeySelector: userRole => userRole.RoleId, 
+        innerKeySelector: role => role.Id, 
+        resultSelector: (userRole, role) => new { 
+            userRole = userRole, 
+            role = role
+         })
+    .Where(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.userRole.UserId.Equals(__userId_0))
+    .Select(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.role.Name)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<string>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT a0.Name
+        FROM AspNetUserRoles AS a
+        INNER JOIN AspNetRoles AS a0 ON a.RoleId == a0.Id
+        WHERE a.UserId == @__userId_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, string>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (2ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityRole>()
+    .FirstOrDefault(r => r.NormalizedName == __normalizedName_0)'
+Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityRole>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityRole>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityRole.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityRole.ConcurrencyStamp (string) Concurrency, 1], [Property: IdentityRole.Name (string) MaxLength(256), 2], [Property: IdentityRole.NormalizedName (string) Index MaxLength(256), 3] }
+            SELECT TOP(1) a.Id, a.ConcurrencyStamp, a.Name, a.NormalizedName
+            FROM AspNetRoles AS a
+            WHERE a.NormalizedName == @__normalizedName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityRole>, 
+        MacroCompanyServices.Domain.MacroCompanyContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Executed DbCommand (11ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Context 'MacroCompanyContext' started tracking 'IdentityRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityRoleClaim<string>>()
+    .Where(rc => rc.RoleId.Equals(__role_Id_0))
+    .Select(c => new Claim(
+        c.ClaimType, 
+        c.ClaimValue
+    ))'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Claim>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Client Projections:
+            0 -> 0
+            1 -> 1
+        SELECT a.ClaimType, a.ClaimValue
+        FROM AspNetRoleClaims AS a
+        WHERE a.RoleId == @__role_Id_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Claim>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (4ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+Executed DbCommand (10ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+User d6145a4b-ed49-4aeb-a2f4-9a7274fba655 - test2 logged in at 01.11.2022 11:56:22
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<Employee>()
+    .OrderBy(e => e.Name)
+    .Count()'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<int>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT COUNT(*)
+        FROM Employees AS e), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, int>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)
+    .Single()'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<Employee>()
+    .OrderBy(e => e.Name)
+    .Skip(__p_0)
+    .Take(__p_1)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Employee>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Employee.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Employee.BirthDate (DateTime) Required, 1], [Property: Employee.DateAdded (DateTime) Required, 2], [Property: Employee.Email (string) Required Index MaxLength(254), 3], [Property: Employee.MetaDescription (string), 4], [Property: Employee.MetaKeywords (string), 5], [Property: Employee.MetaTitle (string), 6], [Property: Employee.Name (string) Required MaxLength(150), 7], [Property: Employee.PhoneNumber (string) Required Index, 8], [Property: Employee.Position (EmployeePosition) Required, 9], [Property: Employee.Salary (decimal) Required, 10], [Property: Employee.Text (string), 11], [Property: Employee.Title (string), 12] }
+        SELECT e.Id, e.BirthDate, e.DateAdded, e.Email, e.MetaDescription, e.MetaKeywords, e.MetaTitle, e.Name, e.PhoneNumber, e.Position, e.Salary, e.Text, e.Title
+        FROM Employees AS e
+        ORDER BY e.Name ASC
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Employee>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [e].[Id], [e].[BirthDate], [e].[DateAdded], [e].[Email], [e].[MetaDescription], [e].[MetaKeywords], [e].[MetaTitle], [e].[Name], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Text], [e].[Title]
+FROM [Employees] AS [e]
+ORDER BY [e].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [e].[Id], [e].[BirthDate], [e].[DateAdded], [e].[Email], [e].[MetaDescription], [e].[MetaKeywords], [e].[MetaTitle], [e].[Name], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Text], [e].[Title]
+FROM [Employees] AS [e]
+ORDER BY [e].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+'MacroCompanyContext' generated a value for the property 'Id.Employee'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+SaveChanges starting for 'MacroCompanyContext'.
+DetectChanges starting for 'MacroCompanyContext'.
+DetectChanges completed for 'MacroCompanyContext'.
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Beginning transaction with isolation level 'Unspecified'.
+Began transaction with isolation level 'ReadCommitted'.
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (2ms).
+Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 254), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 150), @p8='?' (Size = 450), @p9='?' (Size = 6), @p10='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p11='?' (Size = 4000), @p12='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Employees] ([Id], [BirthDate], [DateAdded], [Email], [MetaDescription], [MetaKeywords], [MetaTitle], [Name], [PhoneNumber], [Position], [Salary], [Text], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+Executed DbCommand (28ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 254), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 150), @p8='?' (Size = 450), @p9='?' (Size = 6), @p10='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p11='?' (Size = 4000), @p12='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Employees] ([Id], [BirthDate], [DateAdded], [Email], [MetaDescription], [MetaKeywords], [MetaTitle], [Name], [PhoneNumber], [Position], [Salary], [Text], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+A data reader was disposed.
+Committing transaction.
+Committed transaction.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Disposing transaction.
+An entity of type 'Employee' tracked by 'MacroCompanyContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+SaveChanges completed for 'MacroCompanyContext' with 1 entities written to the database.
+User with ID: d6145a4b-ed49-4aeb-a2f4-9a7274fba655 added or modified an employee record with ID: d02b5256-7e48-4f0a-49ce-08dabbd64487
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (2ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Employees] AS [e]
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (2ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [e].[Id], [e].[BirthDate], [e].[DateAdded], [e].[Email], [e].[MetaDescription], [e].[MetaKeywords], [e].[MetaTitle], [e].[Name], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Text], [e].[Title]
+FROM [Employees] AS [e]
+ORDER BY [e].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [e].[Id], [e].[BirthDate], [e].[DateAdded], [e].[Email], [e].[MetaDescription], [e].[MetaKeywords], [e].[MetaTitle], [e].[Name], [e].[PhoneNumber], [e].[Position], [e].[Salary], [e].[Text], [e].[Title]
+FROM [Employees] AS [e]
+ORDER BY [e].[Name]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+Context 'MacroCompanyContext' started tracking 'Employee' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Application is shutting down...
+Hosting stopping
+Hosting stopped
+Hosting starting
+Now listening on: https://localhost:7224
+Now listening on: http://localhost:5224
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: D:\CSharpProjects1\MacroCompanyServices\MacroCompanyServices\
+Hosting started
+An 'IServiceProvider' was created for internal use by Entity Framework.
+User with ID: d6145a4b-ed49-4aeb-a2f4-9a7274fba655 logged out at 01.11.2022 12:04:46
+The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+No store type was specified for the decimal property 'Salary' on entity type 'Employee'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<PageData>()
+    .FirstOrDefault(p => p.CodeWord == __codeWord_0)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<PageData>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: PageData.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: PageData.CodeWord (string) Required, 1], [Property: PageData.DateAdded (DateTime) Required, 2], [Property: PageData.MetaDescription (string), 3], [Property: PageData.MetaKeywords (string), 4], [Property: PageData.MetaTitle (string), 5], [Property: PageData.Text (string) Required, 6], [Property: PageData.Title (string) Required, 7] }
+        SELECT TOP(1) p.Id, p.CodeWord, p.DateAdded, p.MetaDescription, p.MetaKeywords, p.MetaTitle, p.Text, p.Title
+        FROM PagesData AS p
+        WHERE p.CodeWord == @__codeWord_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, PageData>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (104ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (125ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<IdentityUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUser.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityUser.AccessFailedCount (int) Required, 1], [Property: IdentityUser.ConcurrencyStamp (string) Concurrency, 2], [Property: IdentityUser.Email (string) MaxLength(256), 3], [Property: IdentityUser.EmailConfirmed (bool) Required, 4], [Property: IdentityUser.LockoutEnabled (bool) Required, 5], [Property: IdentityUser.LockoutEnd (DateTimeOffset?), 6], [Property: IdentityUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: IdentityUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: IdentityUser.PasswordHash (string), 9], [Property: IdentityUser.PhoneNumber (string), 10], [Property: IdentityUser.PhoneNumberConfirmed (bool) Required, 11], [Property: IdentityUser.SecurityStamp (string), 12], [Property: IdentityUser.TwoFactorEnabled (bool) Required, 13], [Property: IdentityUser.UserName (string) MaxLength(256), 14] }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.NormalizedUserName == @__normalizedUserName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUser>, 
+        MacroCompanyServices.Domain.MacroCompanyContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (4ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Executed DbCommand (74ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Context 'MacroCompanyContext' started tracking 'IdentityUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityUserClaim<string>>()
+    .Where(uc => uc.UserId.Equals(__user_Id_0))
+    .Select(c => c.ToClaim())'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Claim>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: IdentityUserClaim<string>.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: IdentityUserClaim<string>.ClaimType (string), 1], [Property: IdentityUserClaim<string>.ClaimValue (string), 2], [Property: IdentityUserClaim<string>.UserId (string) Required FK Index, 3] }
+        SELECT a.Id, a.ClaimType, a.ClaimValue, a.UserId
+        FROM AspNetUserClaims AS a
+        WHERE a.UserId == @__user_Id_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Claim>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+Executed DbCommand (12ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityUserRole<string>>()
+    .Join(
+        inner: DbSet<IdentityRole>(), 
+        outerKeySelector: userRole => userRole.RoleId, 
+        innerKeySelector: role => role.Id, 
+        resultSelector: (userRole, role) => new { 
+            userRole = userRole, 
+            role = role
+         })
+    .Where(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.userRole.UserId.Equals(__userId_0))
+    .Select(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.role.Name)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<string>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT a0.Name
+        FROM AspNetUserRoles AS a
+        INNER JOIN AspNetRoles AS a0 ON a.RoleId == a0.Id
+        WHERE a.UserId == @__userId_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, string>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (2ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityRole>()
+    .FirstOrDefault(r => r.NormalizedName == __normalizedName_0)'
+Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityRole>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityRole>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityRole.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityRole.ConcurrencyStamp (string) Concurrency, 1], [Property: IdentityRole.Name (string) MaxLength(256), 2], [Property: IdentityRole.NormalizedName (string) Index MaxLength(256), 3] }
+            SELECT TOP(1) a.Id, a.ConcurrencyStamp, a.Name, a.NormalizedName
+            FROM AspNetRoles AS a
+            WHERE a.NormalizedName == @__normalizedName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityRole>, 
+        MacroCompanyServices.Domain.MacroCompanyContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (2ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Executed DbCommand (14ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Context 'MacroCompanyContext' started tracking 'IdentityRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityRoleClaim<string>>()
+    .Where(rc => rc.RoleId.Equals(__role_Id_0))
+    .Select(c => new Claim(
+        c.ClaimType, 
+        c.ClaimValue
+    ))'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Claim>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Client Projections:
+            0 -> 0
+            1 -> 1
+        SELECT a.ClaimType, a.ClaimValue
+        FROM AspNetRoleClaims AS a
+        WHERE a.RoleId == @__role_Id_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Claim>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+Executed DbCommand (10ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+User 4784f618-2d8d-4a42-a78f-aae1ecec4bf5 - admin logged in at 01.11.2022 12:05:05
+'MacroCompanyContext' disposed.
+User with ID: 4784f618-2d8d-4a42-a78f-aae1ecec4bf5 logged out at 01.11.2022 12:05:09
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (2ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (5ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Application is shutting down...
+Hosting stopping
+Hosting stopped
+Hosting starting
+Now listening on: https://localhost:7224
+Now listening on: http://localhost:5224
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: D:\CSharpProjects1\MacroCompanyServices\MacroCompanyServices\
+Hosting started
+An 'IServiceProvider' was created for internal use by Entity Framework.
+The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+No store type was specified for the decimal property 'Salary' on entity type 'Employee'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+No store type was specified for the decimal property 'ProductPrice' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<PageData>()
+    .FirstOrDefault(p => p.CodeWord == __codeWord_0)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<PageData>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: PageData.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: PageData.CodeWord (string) Required, 1], [Property: PageData.DateAdded (DateTime) Required, 2], [Property: PageData.MetaDescription (string), 3], [Property: PageData.MetaKeywords (string), 4], [Property: PageData.MetaTitle (string), 5], [Property: PageData.Text (string) Required, 6], [Property: PageData.Title (string) Required, 7] }
+        SELECT TOP(1) p.Id, p.CodeWord, p.DateAdded, p.MetaDescription, p.MetaKeywords, p.MetaTitle, p.Text, p.Title
+        FROM PagesData AS p
+        WHERE p.CodeWord == @__codeWord_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, PageData>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)
+    .SingleOrDefault()'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (192ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (169ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Compiling query expression: 
+'DbSet<IdentityUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUser.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityUser.AccessFailedCount (int) Required, 1], [Property: IdentityUser.ConcurrencyStamp (string) Concurrency, 2], [Property: IdentityUser.Email (string) MaxLength(256), 3], [Property: IdentityUser.EmailConfirmed (bool) Required, 4], [Property: IdentityUser.LockoutEnabled (bool) Required, 5], [Property: IdentityUser.LockoutEnd (DateTimeOffset?), 6], [Property: IdentityUser.NormalizedEmail (string) Index MaxLength(256), 7], [Property: IdentityUser.NormalizedUserName (string) Index MaxLength(256), 8], [Property: IdentityUser.PasswordHash (string), 9], [Property: IdentityUser.PhoneNumber (string), 10], [Property: IdentityUser.PhoneNumberConfirmed (bool) Required, 11], [Property: IdentityUser.SecurityStamp (string), 12], [Property: IdentityUser.TwoFactorEnabled (bool) Required, 13], [Property: IdentityUser.UserName (string) MaxLength(256), 14] }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.NormalizedUserName == @__normalizedUserName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUser>, 
+        MacroCompanyServices.Domain.MacroCompanyContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (4ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Executed DbCommand (54ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Context 'MacroCompanyContext' started tracking 'IdentityUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityUserClaim<string>>()
+    .Where(uc => uc.UserId.Equals(__user_Id_0))
+    .Select(c => c.ToClaim())'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Claim>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: IdentityUserClaim<string>.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: IdentityUserClaim<string>.ClaimType (string), 1], [Property: IdentityUserClaim<string>.ClaimValue (string), 2], [Property: IdentityUserClaim<string>.UserId (string) Required FK Index, 3] }
+        SELECT a.Id, a.ClaimType, a.ClaimValue, a.UserId
+        FROM AspNetUserClaims AS a
+        WHERE a.UserId == @__user_Id_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Claim>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+Executed DbCommand (9ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityUserRole<string>>()
+    .Join(
+        inner: DbSet<IdentityRole>(), 
+        outerKeySelector: userRole => userRole.RoleId, 
+        innerKeySelector: role => role.Id, 
+        resultSelector: (userRole, role) => new { 
+            userRole = userRole, 
+            role = role
+         })
+    .Where(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.userRole.UserId.Equals(__userId_0))
+    .Select(<>h__TransparentIdentifier0 => <>h__TransparentIdentifier0.role.Name)'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<string>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT a0.Name
+        FROM AspNetUserRoles AS a
+        INNER JOIN AspNetRoles AS a0 ON a.RoleId == a0.Id
+        WHERE a.UserId == @__userId_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, string>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (2ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityRole>()
+    .FirstOrDefault(r => r.NormalizedName == __normalizedName_0)'
+Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityRole>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityRole>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityRole.Id (string) Required PK AfterSave:Throw, 0], [Property: IdentityRole.ConcurrencyStamp (string) Concurrency, 1], [Property: IdentityRole.Name (string) MaxLength(256), 2], [Property: IdentityRole.NormalizedName (string) Index MaxLength(256), 3] }
+            SELECT TOP(1) a.Id, a.ConcurrencyStamp, a.Name, a.NormalizedName
+            FROM AspNetRoles AS a
+            WHERE a.NormalizedName == @__normalizedName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityRole>, 
+        MacroCompanyServices.Domain.MacroCompanyContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (2ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Executed DbCommand (5ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Context 'MacroCompanyContext' started tracking 'IdentityRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Compiling query expression: 
+'DbSet<IdentityRoleClaim<string>>()
+    .Where(rc => rc.RoleId.Equals(__role_Id_0))
+    .Select(c => new Claim(
+        c.ClaimType, 
+        c.ClaimValue
+    ))'
+Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Claim>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Client Projections:
+            0 -> 0
+            1 -> 1
+        SELECT a.ClaimType, a.ClaimValue
+        FROM AspNetRoleClaims AS a
+        WHERE a.RoleId == @__role_Id_0), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Claim>, 
+    MacroCompanyServices.Domain.MacroCompanyContext, 
+    False, 
+    False, 
+    True
+)'
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (4ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+Executed DbCommand (15ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+User d6145a4b-ed49-4aeb-a2f4-9a7274fba655 - test2 logged in at 01.11.2022 12:06:22
+'MacroCompanyContext' disposed.
+User with ID: d6145a4b-ed49-4aeb-a2f4-9a7274fba655 logged out at 01.11.2022 12:06:29
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (7ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (6ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Executed DbCommand (7ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+Context 'MacroCompanyContext' started tracking 'IdentityUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+Executed DbCommand (9ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Executed DbCommand (5ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+Context 'MacroCompanyContext' started tracking 'IdentityRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (3ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+Executed DbCommand (5ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+User 4784f618-2d8d-4a42-a78f-aae1ecec4bf5 - admin logged in at 01.11.2022 12:06:46
+'MacroCompanyContext' disposed.
+User with ID: 4784f618-2d8d-4a42-a78f-aae1ecec4bf5 logged out at 01.11.2022 12:06:53
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (6ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (9ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Entity Framework Core 6.0.10 initialized 'MacroCompanyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+Creating DbCommand for 'ExecuteReader'.
+Created DbCommand for 'ExecuteReader' (5ms).
+Opening connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Opened connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Executing DbCommand [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Executed DbCommand (14ms) [Parameters=[@__codeWord_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CodeWord], [p].[DateAdded], [p].[MetaDescription], [p].[MetaKeywords], [p].[MetaTitle], [p].[Text], [p].[Title]
+FROM [PagesData] AS [p]
+WHERE [p].[CodeWord] = @__codeWord_0
+Context 'MacroCompanyContext' started tracking 'PageData' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+A data reader was disposed.
+Closing connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+Closed connection to database 'macrocompanyservices' on server '(localdb)\mssqllocaldb'.
+'MacroCompanyContext' disposed.
+Application is shutting down...
+Hosting stopping
+Hosting stopped

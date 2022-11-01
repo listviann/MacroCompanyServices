@@ -5,6 +5,8 @@ using MacroCompanyServices.Models;
 using MacroCompanyServices.Service;
 using MacroCompanyServices.Loggers;
 using System.Security.Claims;
+using MacroCompanyServices.Areas.Admin.Controllers;
+using MacroCompanyServices.Areas.User.Controllers;
 
 namespace MacroCompanyServices.Controllers
 {
@@ -22,6 +24,17 @@ namespace MacroCompanyServices.Controllers
             _signInManager = signInManager;
             _roleManager = roleManager;
             _logger = logger;
+        }
+
+        [AllowAnonymous]
+        public IActionResult Index()
+        {
+            if (User.Identity!.IsAuthenticated && User.IsInRole("ordinary_user"))
+            {
+                return RedirectToAction(nameof(UserProfileController.Index), nameof(UserProfileController).CutController(), new { area = "User" });
+            }
+
+            return View();
         }
 
         [AllowAnonymous]
