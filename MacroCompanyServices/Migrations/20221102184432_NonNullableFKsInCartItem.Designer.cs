@@ -4,6 +4,7 @@ using MacroCompanyServices.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MacroCompanyServices.Migrations
 {
     [DbContext(typeof(MacroCompanyContext))]
-    partial class MacroCompanyContextModelSnapshot : ModelSnapshot
+    [Migration("20221102184432_NonNullableFKsInCartItem")]
+    partial class NonNullableFKsInCartItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +40,7 @@ namespace MacroCompanyServices.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("CartItems", (string)null);
+                    b.ToTable("CartItems");
                 });
 
             modelBuilder.Entity("MacroCompanyServices.Domain.Entities.Employee", b =>
@@ -97,7 +99,7 @@ namespace MacroCompanyServices.Migrations
                     b.HasIndex("PhoneNumber")
                         .IsUnique();
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("MacroCompanyServices.Domain.Entities.PageData", b =>
@@ -132,7 +134,7 @@ namespace MacroCompanyServices.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PagesData", (string)null);
+                    b.ToTable("PagesData");
 
                     b.HasData(
                         new
@@ -213,7 +215,7 @@ namespace MacroCompanyServices.Migrations
 
                     b.HasIndex("ProductTypeId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("MacroCompanyServices.Domain.Entities.ProductType", b =>
@@ -232,7 +234,7 @@ namespace MacroCompanyServices.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("ProductTypes", (string)null);
+                    b.ToTable("ProductTypes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

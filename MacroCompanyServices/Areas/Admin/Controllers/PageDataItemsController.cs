@@ -63,7 +63,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 _dataManager.PagesData.SavePageData(model);
-                _logger.LogDebug($"The administrator added or modified data about the page with ID: {model.Id}");
+                _logger.LogInformation($"The administrator added or modified data about the page with ID: {model.Id}");
                 return RedirectToAction(nameof(PageDataItemsController.Index), nameof(PageDataItemsController).CutController());
             }
 

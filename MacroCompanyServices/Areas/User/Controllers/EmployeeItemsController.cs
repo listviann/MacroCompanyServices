@@ -93,7 +93,7 @@ namespace MacroCompanyServices.Areas.User.Controllers
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
                 _dataManager.Employees.SaveEmployee(model);
-                _logger.LogDebug($"User with ID: {userId} added or modified an employee record with ID: {model.Id}");
+                _logger.LogInformation($"User with ID: {userId} added or modified an employee record with ID: {model.Id}");
                 return RedirectToAction(nameof(EmployeeItemsController.Index), nameof(EmployeeItemsController).CutController());
             }
 

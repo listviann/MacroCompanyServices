@@ -114,7 +114,7 @@ namespace MacroCompanyServices.Areas.User.Controllers
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
                 _dataManager.Products.SaveProduct(model);
-                _logger.LogDebug($"User with ID: {userId} added or modified a product record with ID: {model.Id}");
+                _logger.LogInformation($"User with ID: {userId} added or modified a product record with ID: {model.Id}");
                 return RedirectToAction(nameof(ProductItemsController.Index), nameof(ProductItemsController).CutController());
             }
 
@@ -128,7 +128,7 @@ namespace MacroCompanyServices.Areas.User.Controllers
             Debug.WriteLine(userId);
 
             _dataManager.CartItems.Save(prodId, new Guid(userId));
-            _logger.LogDebug($"User with ID: {userId} added an item with ID: {prodId} to the products cart");
+            _logger.LogInformation($"User with ID: {userId} added an item with ID: {prodId} to the products cart");
             return RedirectToAction(nameof(ProductItemsController.Index), nameof(ProductItemsController).CutController());
         }
     }

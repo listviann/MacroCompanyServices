@@ -8,10 +8,10 @@ namespace MacroCompanyServices.Domain.Entities
         public Guid Id { get; set; }
 
         [ForeignKey("ProductId")]
-        public Guid? ProductId { get; set; }
-        public Product? Product { get; set; }
+        public Guid ProductId { get; set; }
+        public Product Product { get; set; }
 
         [ForeignKey("UserId")]
-        public Guid? UserId { get; set; }
+        public Guid UserId { get; set; }
     }
 }

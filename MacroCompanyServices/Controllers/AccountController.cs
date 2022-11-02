@@ -92,7 +92,7 @@ namespace MacroCompanyServices.Controllers
 
                     if (signInResult.Succeeded)
                     {
-                        _logger.LogDebug($"User {user.Id} - {user.UserName} logged in at {DateTime.Now}");
+                        _logger.LogInformation($"User {user.Id} - {user.UserName} logged in at {DateTime.Now}");
                         return Redirect(returnUrl ?? "/");
                     }
                 }
@@ -109,7 +109,7 @@ namespace MacroCompanyServices.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             await _signInManager.SignOutAsync();
-            _logger.LogDebug($"User with ID: {userId} logged out at {DateTime.Now}");
+            _logger.LogInformation($"User with ID: {userId} logged out at {DateTime.Now}");
 
             return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).CutController());
         }

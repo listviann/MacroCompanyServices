@@ -76,7 +76,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 _dataManager.Employees.SaveEmployee(model);
-                _logger.LogDebug($"The administrator added or modified an employee with ID: {model.Id}");
+                _logger.LogInformation($"The administrator added or modified an employee with ID: {model.Id}");
                 return RedirectToAction(nameof(EmployeeItemsController.Index), nameof(EmployeeItemsController).CutController());
             }
 
@@ -87,7 +87,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
         public IActionResult Delete(Guid id)
         {
             _dataManager.Employees.DeleteEmployee(id);
-            _logger.LogDebug($"The administrator deleted an employee with ID: {id}");
+            _logger.LogInformation($"The administrator deleted an employee with ID: {id}");
             return RedirectToAction(nameof(EmployeeItemsController.Index), nameof(EmployeeItemsController).CutController());
         }
     }

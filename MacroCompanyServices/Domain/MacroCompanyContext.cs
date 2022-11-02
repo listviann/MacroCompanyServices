@@ -2,6 +2,7 @@
 using MacroCompanyServices.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using MacroCompanyServices.Areas.User.Models;
 
 namespace MacroCompanyServices.Domain
 {
@@ -83,6 +84,8 @@ namespace MacroCompanyServices.Domain
             builder.Entity<Employee>().HasIndex(e => e.Email).IsUnique();
             builder.Entity<Employee>().HasIndex(e => e.PhoneNumber).IsUnique();
             builder.Entity<ProductType>().HasIndex(p => p.Name).IsUnique();
+
+            //builder.Entity<CartItem>().HasOne(c => c.User)
         }
     }
 }

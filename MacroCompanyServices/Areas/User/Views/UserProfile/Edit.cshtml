@@ -22,4 +22,9 @@
     <div>
         <a asp-area="User" asp-controller="UserProfile" asp-action="ChangePassword">Change password</a>
     </div>
+    <div>
+        <form asp-area="User" asp-controller="UserProfile" asp-action="DeleteUser" method="post">
+            <input type="submit" value="Delete" />
+        </form>
+    </div>
 </div>

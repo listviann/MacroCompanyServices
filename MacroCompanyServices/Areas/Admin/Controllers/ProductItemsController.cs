@@ -89,7 +89,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 _dataManager.Products.SaveProduct(model);
-                _logger.LogDebug($"The administrator added or modified a product with ID: {model.Id}");
+                _logger.LogInformation($"The administrator added or modified a product with ID: {model.Id}");
                 return RedirectToAction(nameof(ProductItemsController.Index), nameof(ProductItemsController).CutController());
             }
 
@@ -100,7 +100,7 @@ namespace MacroCompanyServices.Areas.Admin.Controllers
         public IActionResult Delete(Guid id)
         {
             _dataManager.Products.DeleteProduct(id);
-            _logger.LogDebug($"The administrator deleted a product with ID: {id}");
+            _logger.LogInformation($"The administrator deleted a product with ID: {id}");
             return RedirectToAction(nameof(ProductItemsController.Index), nameof(ProductItemsController).CutController());
         }
     }

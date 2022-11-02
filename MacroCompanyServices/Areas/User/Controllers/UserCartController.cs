@@ -56,7 +56,7 @@ namespace MacroCompanyServices.Areas.User.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             _dataManager.CartItems.Delete(id);
-            _logger.LogDebug($"User with ID: {userId} deleted a product with ID: {id} from the products cart");
+            _logger.LogInformation($"User with ID: {userId} deleted a product with ID: {id} from the products cart");
             return RedirectToAction(nameof(UserCartController.Index), nameof(UserCartController).CutController());
         }
     }
