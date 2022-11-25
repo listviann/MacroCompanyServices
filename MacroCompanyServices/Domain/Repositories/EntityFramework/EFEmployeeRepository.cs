@@ -13,9 +13,9 @@ namespace MacroCompanyServices.Domain.Repositories.EntityFramework
             _db = db;
         }
 
-        public IQueryable<Employee> GetEmployees() => _db.Employees;
+        public IQueryable<Employee> GetEmployees() => _db.Employees.Include(p => p.Products);
 
-        public Employee GetEmployeeById(Guid id) => _db.Employees.FirstOrDefault(e => e.Id == id);
+        public Employee GetEmployeeById(Guid id) => _db.Employees.Include(p => p.Products).FirstOrDefault(e => e.Id == id);
 
         public void SaveEmployee(Employee entity)
         {

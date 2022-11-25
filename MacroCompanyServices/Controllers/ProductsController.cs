@@ -70,8 +70,7 @@ namespace MacroCompanyServices.Controllers
         {
             if (id != default)
             {
-                IQueryable<Product> products = _dataManager.Products.GetProducts().Include(p => p.ProductType).Include(p => p.Employee);
-                Product? product = products.FirstOrDefault(p => p.Id == id);
+                Product? product = _dataManager.Products.GetProductById(id);
                 if (product != null) return View(product);
             }
 

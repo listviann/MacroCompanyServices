@@ -63,12 +63,9 @@ namespace MacroCompanyServices.Controllers
 
         public IActionResult Info(Guid id)
         {
-            IQueryable<Employee> employees = _dataManager.Employees.GetEmployees().Include(p => p.Products);
-
             if (id != default)
             {
-                //Employee? employee = _dataManager.Employees.GetEmployeeById(id);
-                Employee? employee = employees.FirstOrDefault(e => e.Id == id);
+                Employee? employee = _dataManager.Employees.GetEmployeeById(id);
                 if (employee != null) return View(employee);
             }
 
